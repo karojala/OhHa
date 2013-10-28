@@ -1,0 +1,12 @@
+Aihe: Kirjamuistio
+Toteutetaan järjestelmä, johon voi lisätä omistamiansa ja tulevaisuudessa haluttuja kirjoja tietoineen. Talletettavia tietoja voivat olla nimi, kirjoittaja, ISBN-koodi, julkaisuvuosi, kuvaus, arvostelu, hyllypaikka jne. 
+
+Käyttäjät: Kirjojen omistaja
+
+Toiminnot: 
+* Järjestelmään kirjautuminen
+* Kaikkien kirjojen listaus
+* Kirjahaku tietyn tiedon/tietojen perusteella
+* Kirjan lisääminen
+* Kirjan muokkaus
+* Kirjan poistaminen

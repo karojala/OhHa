@@ -1,0 +1,4 @@
+Ohjelmoinnin harjoitustyö - Tuntikirjanpito
+
+28.10.2013 maanantai 1h 30 min
+Osallistuminen aloitusluennolle, GitHubiin rekisteröityminen, labtooliin rekisteröityminen, GitHub-ohjeen läpikäynti, kansioiden luonti, NetBeans-projektin aloitus yms. 
