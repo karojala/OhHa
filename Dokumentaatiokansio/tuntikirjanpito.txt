@@ -1,7 +1,7 @@
-Ohjelmoinnin harjoitustyö - Tuntikirjanpito
+﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
 31.10.2013 torstai 45 min
-Ohjelman kuvaustiedoston jatkaminen, asioiden tarkistus deadlinea varten
+Ohjelman kuvaustiedoston jatkaminen, asioiden tarkistus deadlinea varten, Gitin ja GitHubin lataus ja asettaminen Windows-kotikoneelle
 
 28.10.2013 maanantai 1h 30 min
 Osallistuminen aloitusluennolle, GitHubiin rekisteröityminen, labtooliin rekisteröityminen, GitHub-ohjeen läpikäynti, kansioiden luonti, NetBeans-projektin aloitus yms. 
