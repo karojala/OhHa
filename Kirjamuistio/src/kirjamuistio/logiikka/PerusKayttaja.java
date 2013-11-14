@@ -2,7 +2,8 @@ package kirjamuistio.logiikka;
 
 public class PerusKayttaja implements Kayttaja {
 
-    // Myöhemmin toteutetaan rajapinnan kautta
+    // HUOM. Ei tällä hetkellä käytössä! Toteutetaan kunnolla EHKÄ myöhemmin
+    
     private String tunnus;
     private String salasana;
 

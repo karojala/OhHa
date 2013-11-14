@@ -1,4 +1,9 @@
-package kirjamuistio.logiikka;
+package kirjamuistio.main;
+
+import kirjamuistio.logiikka.Halutut;
+import kirjamuistio.logiikka.Kirja;
+import kirjamuistio.logiikka.Kirjalista;
+import kirjamuistio.logiikka.Omistetut;
 
 public class Main {
 

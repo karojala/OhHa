@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 public class Halutut implements Kirjalista {
 
-    // Kirjalista, haut jne. toteutetaan myöhemmin rajapinnan kautta
-    // CriteriaBuilder esim. ???
     private HashMap<String, Kirja> kirjat;
 
     public Halutut() {
@@ -27,6 +25,7 @@ public class Halutut implements Kirjalista {
             ok = false;
         }
 
+        //Julkaisuvuosi ei pakollinen halutuille kirjoille
         if (kirja.getJulkaisuvuosi() < 0 || kirja.getJulkaisuvuosi() > 2100) {
             System.out.println("Kirjan julkaisuvuosi on virheellinen.");
             ok = false;

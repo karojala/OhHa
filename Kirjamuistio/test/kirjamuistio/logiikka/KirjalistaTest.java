@@ -10,7 +10,7 @@ public class KirjalistaTest {
 
     @Before
     public void setUp() {
-        kirjalista = new Kirjalista();
+        kirjalista = new Omistetut();
         kirja = new Kirja("The Selfish Gene", "Richard Dawkins", 1976);
     }
 

@@ -9,7 +9,7 @@ public class KayttajaTest {
 
     @Before
     public void SetUp() {
-        kayttaja = new Kayttaja("Bibliofiili", "utopia");
+        kayttaja = new PerusKayttaja("Bibliofiili", "utopia");
     }
 
     @Test

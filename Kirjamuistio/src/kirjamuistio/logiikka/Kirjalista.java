@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public interface Kirjalista {
 
-    // Hakutoiminnon toteutus CriteriaBuilderin avulla tulossa
     public boolean tarkistaKirjanTiedot(Kirja kirja);
 
     public void lisaaKirja(Kirja kirja);
