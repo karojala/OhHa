@@ -1,7 +1,7 @@
 ﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
-14.11.2013 torstai 2 h
-Kirjalista- ja Kayttaja-luokat rajapinnoiksi, keskustelua ohjaajan kanssa ohjelman rakenteesta, turhien osien poisto
+14.11.2013 torstai ~5 h
+Kirjalista- ja Kayttaja-luokat rajapinnoiksi, keskustelua ohjaajan kanssa ohjelman rakenteesta, turhien osien poisto ja siirtäminen Kayttamattomat-kansioon, graafisen käyttöliittymän aloittaminen, luokkakaavion päivitys
 
 7.11.2013 torstai ~5 h
 Ohjelmoinnin varsinainen aloittaminen, JUnit-testien tekeminen, määrittelyvaiheen luokkakaavio

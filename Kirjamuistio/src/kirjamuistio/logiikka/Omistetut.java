@@ -123,6 +123,6 @@ public class Omistetut implements Kirjalista {
             kirjatMerkkijonona += "  " + kirja + "\n";
         }
 
-        return "Käyttäjän omistamat kirjat: \n" + kirjatMerkkijonona;
+        return kirjatMerkkijonona;
     }
 }
