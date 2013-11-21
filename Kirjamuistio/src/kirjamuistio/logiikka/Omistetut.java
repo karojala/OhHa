@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 public class Omistetut implements Kirjalista {
 
-    // Kirjalista, haut jne. toteutetaan myöhemmin rajapinnan kautta
-    // CriteriaBuilder esim. ???
     private HashMap<String, Kirja> kirjat;
 
     public Omistetut() {

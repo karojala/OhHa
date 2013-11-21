@@ -1,5 +1,5 @@
 package kirjamuistio.kayttoliittyma;
-        
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -27,7 +27,7 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
-    // Tämä pitää jakaa eri metodeihin ainakin, ellei luokkiin
+    // Tämä pitää EHDOTTOMASTI jakaa eri metodeihin ainakin, ellei luokkiin
     private void luoKomponentit(Container container) {
         JTabbedPane tabbedPane = new JTabbedPane();
 
@@ -35,24 +35,27 @@ public class Kayttoliittyma implements Runnable {
         tabbedPane.addTab("Omistetut kirjat", panel1);
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
         panel1.setLayout(new BorderLayout());
-        panel1.add(new JButton("Näytä lista omistamani kirjoista"), BorderLayout.NORTH);
-        
+        JButton nayta = new JButton("Näytä lista omistamani kirjoista");
+
         //Testausta varten väliaikaisesti tässä
         Kirjalista kirjalista = new Omistetut();
         kirjalista.lisaaKirja(new Kirja("The Selfish Gene", "Richard Dawkins", 1976));
         kirjalista.lisaaKirja(new Kirja("The God Delusion", "Richard Dawkins", 1980));
-        
-        //ActionListenerin lisääminen, jotta tämä ilmestyy nappia painamalla
+
         JTextField tekstikentta = new JTextField();
-        tekstikentta.setText(kirjalista.toString());
+        //tekstikentta.setText(kirjalista.toString());
         panel1.add(tekstikentta, BorderLayout.CENTER);
+
+        //Tapahtumakuuntelija
+        nayta.addActionListener(new NapinKuuntelija(tekstikentta, kirjalista.kirjalista()));
+        panel1.add(nayta, BorderLayout.NORTH);
 
         JComponent panel2 = makeTextPanel("Haluamieni kirjojen hallinta");
         tabbedPane.addTab("Halutut kirjat", panel2);
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
         container.add(tabbedPane);
-        
+
         tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
     }
 
