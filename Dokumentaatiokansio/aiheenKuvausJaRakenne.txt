@@ -17,7 +17,7 @@ Käyttäjän toiminnot:
 * Kirjahaku tietyn tiedon/tietojen perusteella
   - Kaikki esim. tiettyä nimeä tai julkaisuvuotta vastaavat kirjat
 * Kirjan lisääminen (pakolliset tiedot *)
-  - Status: omistettu vai haluttu *
+  - Status: omistettu vai haluttu (määritetään sillä, mihin kirjalistaan kirja lisätään)
   - Nimi *
   - Kirjoittaja *
   - ISBN-koodi
