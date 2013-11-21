@@ -3,6 +3,11 @@ package kirjamuistio.logiikka;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+/**
+ * Halutut on Kirjalistan erikoistapaus, joka toimii varastona halutuille kirjoille
+ * Se poikkeaa (tulevaisuudessa) pieniltä osin Omistetut-luokasta
+ * @author Karita Ojala
+ */
 public class Halutut implements Kirjalista {
 
     private HashMap<String, Kirja> kirjat;

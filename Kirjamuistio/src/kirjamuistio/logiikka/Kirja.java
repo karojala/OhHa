@@ -1,8 +1,13 @@
 package kirjamuistio.logiikka;
 
+/**
+ * Kirja-luokka kokoaa kasaan tarvittavat tiedot yhdestä kirja-oliosta
+ * Sillä on getterit ja setterit, joiden avulla voidaan sekä hakea kirjan tietooja 
+ * ja muokata tietoja
+ * @author Karita Ojala
+ */
 public class Kirja {
 
-    // Kirja toteutetaan myöhemmin ehkä rajapinnan kautta
     private String nimi;
     private String kirjoittaja;
     private int julkvuosi;

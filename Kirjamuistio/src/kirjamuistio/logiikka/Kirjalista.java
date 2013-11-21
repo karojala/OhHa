@@ -2,6 +2,11 @@ package kirjamuistio.logiikka;
 
 import java.util.ArrayList;
 
+/**
+ * Kirjalista on rajapinta, joka määrittelee joukon metodeja toteutettavaksi
+ * Nämä metodit muodostavat kirjamuistion ydinosuuden
+ * @author Karita Ojala
+ */
 public interface Kirjalista {
 
     public boolean tarkistaKirjanTiedot(Kirja kirja);

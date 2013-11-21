@@ -8,6 +8,10 @@ import kirjamuistio.kayttoliittyma.Kayttoliittyma;
 
 import javax.swing.SwingUtilities;
 
+/**
+ * Main-luokasta käynnistetään käyttöliittymä
+ * @author Karita Ojala
+ */
 public class Main {
 
     public static void main(String[] args) {

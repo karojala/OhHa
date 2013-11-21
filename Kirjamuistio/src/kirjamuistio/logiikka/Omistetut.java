@@ -3,6 +3,11 @@ package kirjamuistio.logiikka;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+/**
+ * Omistetut on Kirjalistan erikoistapaus, joka toimii varastona omistetuille kirjoille
+ * 
+ * @author Karita Ojala
+ */
 public class Omistetut implements Kirjalista {
 
     private HashMap<String, Kirja> kirjat;
@@ -11,6 +16,12 @@ public class Omistetut implements Kirjalista {
         this.kirjat = new HashMap<String, Kirja>();
     }
 
+    /**
+     * Metodi tarkistaa, että kirjalle on syötetty nimi, kirjoittaja ja oikeassa muodossa oleva julkaisuvuosi
+     *
+     * @param kirja Luotu kirja
+     * @return Ovatko kirjan tiedot ok, true tai false
+     */
     @Override
     public boolean tarkistaKirjanTiedot(Kirja kirja) {
         boolean ok = true;

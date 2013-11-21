@@ -3,6 +3,11 @@ package kirjamuistio.logiikka;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+/**
+ * KirjaTest-luokka testaa Kirja-luokan metodien toimintaa
+ * 
+ * @author Karita Ojala
+ */
 public class KirjaTest {
 
     Kirja kirja;

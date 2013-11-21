@@ -10,6 +10,11 @@ import kirjamuistio.logiikka.Kirjalista;
 import kirjamuistio.logiikka.Omistetut;
 import kirjamuistio.logiikka.Kirja;
 
+/**
+ * Käyttöliittymä-luokka toimii ohjelman graafisen käyttöliittymän keskuksena
+ * 
+ * @author Karita Ojala
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
