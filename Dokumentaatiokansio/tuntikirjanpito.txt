@@ -1,7 +1,7 @@
 ﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
-21.11.2013 torstai 3 h
-Ohjelman kuvauksen muuttaminen vastaamaan paremmin nykyistä karsittua suunnitelmaa, sekvenssikaavioiden teko, kayttoliittymän jatkaminen, hakuominaisuuden jatkosuunnittelua/tiedon etsintää (ei vielä toteutettu parhaimmalla tavalla)
+21.11.2013 torstai 4 h
+Ohjelman kuvauksen muuttaminen vastaamaan paremmin nykyistä karsittua suunnitelmaa, sekvenssikaavioiden teko, kayttoliittymän jatkaminen, hakuominaisuuden jatkosuunnittelua/tiedon etsintää (ei vielä toteutettu parhaimmalla tavalla), JavaDocin aloitus
 
 14.11.2013 torstai ~5 h
 Kirjalista- ja Kayttaja-luokat rajapinnoiksi, keskustelua ohjaajan kanssa ohjelman rakenteesta, turhien osien poisto ja siirtäminen Kayttamattomat-kansioon, graafisen käyttöliittymän aloittaminen, luokkakaavion päivitys

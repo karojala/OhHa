@@ -1,4 +1,4 @@
 Ongelmia/tekemättä jääneitä asioita:
-	- JavaDoc
+	- JavaDoc kesken
 	- Testien tekeminen käyttöliittymälle
 	- Hakuominaisuuden jatko
