@@ -19,6 +19,9 @@ public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
 
+    /**
+     * Ajaa graafisen käyttöliittymän
+     */
     @Override
     public void run() {
         frame = new JFrame("Kirjamuistio");

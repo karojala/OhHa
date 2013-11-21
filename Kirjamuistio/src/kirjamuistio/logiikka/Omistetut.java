@@ -18,7 +18,6 @@ public class Omistetut implements Kirjalista {
 
     /**
      * Metodi tarkistaa, että kirjalle on syötetty nimi, kirjoittaja ja oikeassa muodossa oleva julkaisuvuosi
-     *
      * @param kirja Luotu kirja
      * @return Ovatko kirjan tiedot ok, true tai false
      */
@@ -44,6 +43,12 @@ public class Omistetut implements Kirjalista {
         return ok;
     }
 
+    
+    /**
+     * Kirjan lisäysmetodi, joka ensin tarkistaa kirjan tiedot toisen metodin avulla, jonka jälkeen kirjan nimi haetaan siistityn version avulla.
+     * Kirjaa ei voi lisätä, jos se on jo listassa. Jos kirjaa ei ole listassa, kirja lisätään HashMapiin avaimenaan siistitty nimi ja arvona kirja-olio itse. 
+     * @param kirja Lisättävä kirja
+     */
     @Override
     public void lisaaKirja(Kirja kirja) {
         if (tarkistaKirjanTiedot(kirja) == false) {
@@ -59,6 +64,11 @@ public class Omistetut implements Kirjalista {
         }
     }
 
+    /**
+     * Metodi, joka poistaa nimeä vastaavan kirjan. Kirja hakee siistityn nimen avulla avaimen, jonka poistaa arvoineen.
+     * Jos kirja ei ole listassa, sitä ei voi poistaa. 
+     * @param nimi Poistettavan kirjan nimi
+     */
     @Override
     public void poistaKirja(String nimi) {
         String nimisiisti = siistiMerkkijono(nimi);
@@ -70,6 +80,11 @@ public class Omistetut implements Kirjalista {
         }
     }
 
+    /**
+     * Kirjan haku nimen avulla. 
+     * @param nimi Haettavan kirjan nimi
+     * @return Nimen avulla löytynyt kirja
+     */
     @Override
     // Myöhemmin toteutus, että voi hakea epätäydellisellä nimellä?
     public String nimiHaku(String nimi) {

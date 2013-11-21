@@ -23,6 +23,10 @@ public class NapinKuuntelija implements ActionListener {
         this.haluttuTeksti = haluttuTeksti;
     }
     
+    /**
+     * Napin painalluksen jälkeen asettaa tekstikentän tekstiksi halutun tekstin
+     * @param e Tapahtuma
+     */
     public void actionPerformed(ActionEvent e) {
         tekstikentta.setText(this.haluttuTeksti.toString());
     }
