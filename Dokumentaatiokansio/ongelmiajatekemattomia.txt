@@ -1,0 +1,4 @@
+Ongelmia/tekemättä jääneitä asioita:
+	- JavaDoc
+	- Testien tekeminen käyttöliittymälle
+	- Hakuominaisuuden jatko
