@@ -1,34 +1,21 @@
-Aihe: Kirjamuistio
+﻿Aihe: Kirjamuistio
 Toteutetaan järjestelmä, johon käyttäjä voi lisätä jo omistamiaan sekä tulevaisuudessa haluamiaan kirjoja tietoineen.
 Talletettavia tietoja ovat ainakin kirjan status (omistettu/haluttu), nimi, kirjoittaja, ISBN-koodi, julkaisuvuosi, genre ja oma kuvaus. 
-Voisi toteuttaa myös kirjan hyllypaikan talletuksen ja arvostelun esim. asteikolla 1-5 (tähteä). 
-Käyttäjät kirjautuvat sisään järjestelmään itse luomillaan tunnuksella ja salasanalla, joita ylläpitäjä hallinnoi. 
-Kukin käyttäjä voi lisätä suuren, mutta rajallisen määrän (esim. 2000) kirjoja tietoineen omaan kokoelmaansa. 
+Käyttäjä voi lisätä suuren, mutta rajallisen määrän (esim. 2000) kirjoja tietoineen omaan kokoelmaansa. 
 Kirjan tiedoista on täytettävä ainakin status, nimi, kirjoittaja ja julkaisuvuosi, muut kohdat ovat vapaaehtoisia. 
-Käyttäjät voivat rajattomasti jälkikäteen muokata kirjojensa tietoja. Lisäksi he voivat milloin tahansa poistaa kirjan kokoelmastaan. 
-Kirjakokoelmat ovat julkisia (salatun kokoelman toiminnon voisi ehkä toteuttaa?) ja käyttäjät voivat haun avulla selata toistensa kokoelmia. 
-Kirjoja voi hakea omistajan, kirjan nimen, julkaisuvuoden, ISBN-koodin jne. perusteella. Haku voi tuottaa tuloksena yhden tai useampia kirjoja (tai ei yhtään). 
-Järjestelmän ylläpitäjäkäyttäjällä on ns. diktaattorin oikeudet, eli hän voi koska tahansa poistaa yhden tietyn käyttäjän tai minkä tahansa kirjan, muokata käyttäjien kirjoja ja myös pyyhkiä koko järjestelmän tyhjäksi. 
+Käyttäjä voi rajattomasti jälkikäteen muokata kirjojensa tietoja. Lisäksi käyttäjä voivat milloin tahansa poistaa kirjan kokoelmastaan. 
+Kirjoja voi hakea kirjan nimen, julkaisuvuoden, ISBN-koodin jne. perusteella. Haku voi tuottaa tuloksena yhden tai useampia kirjoja (tai ei yhtään). 
 
-Järjestelmän tavoitteena on toimia enimmäkseen kunkin käyttäjän henkilökohtaisena muistiona omista kirjoistaan ja niistä kirjoista, joita he haluaisivat mahdollisesti tulevaisuudessa hankkia. 
-Toisten käyttäjien kirjojen näkeminen mahdollistaa oman kokoelman vertailun jonkun muun (esim. kaverin) kokoelmaan. Arvosteluominaisuus ja kirjojen kuvaukset myös toisivat mahdollisuuden löytää uusia kiinnostavia kirjoja muiden kokoelmista. 
-Järjestelmän päätavoite ei kuitenkaan ole sosiaalinen, vaan oman kirjakokoelman "hallinta" bibliofiileille. 
+Järjestelmän tavoitteena on toimia käyttäjän henkilökohtaisena muistiona omista kirjoistaan ja niistä kirjoista, joita he haluaisivat mahdollisesti tulevaisuudessa hankkia. 
+Järjestelmän päätavoite on oman kirjakokoelman "hallinta" bibliofiileille. 
 
 Käyttäjät: Kirjojen omistaja (henkilökohtainen tietokanta)
-tai: Useita kirjojen omistaja -käyttäjiä, ylläpitäjä
 
-Kirjojen omistajien toiminnot: 
-* Tunnuksen luominen
-  - Omavalintaisen tunnuksen ja salasanan syöttäminen
-  - Rajoitettu pituus kummallekin
-* Järjestelmään kirjautuminen
-  - Onnistuu jos tunnus ja salasana ovat oikein (ja tunnus on luotu)
-* Salasanan vaihtaminen
-  - Onnistuu vain sisäänkirjautuneena (kuten seuraavatkin toiminnot)
+Käyttäjän toiminnot: 
 * Kaikkien kirjojen listaus
   - Näyttää kaikki käyttäjän kirjat esim. aakkos-, julkaisu- tai lisäysjärjestyksessä
 * Kirjahaku tietyn tiedon/tietojen perusteella
-  - Kaikki esim. tiettyä nimeä tai julkaisuvuotta vastaavat käyttäjän omat tai toisen käyttäjän kirjat
+  - Kaikki esim. tiettyä nimeä tai julkaisuvuotta vastaavat kirjat
 * Kirjan lisääminen (pakolliset tiedot *)
   - Status: omistettu vai haluttu *
   - Nimi *
@@ -37,21 +24,6 @@ Kirjojen omistajien toiminnot:
   - Julkaisuvuosi *
   - Genre
   - Kuvaus
-  - Arvostelu
-  - Hyllypaikka
 * Kirjan muokkaus
-  - Vain omia kirjoja voi muokata
   - Kaikkien tietojen muokkaus onnistuu erikseen
 * Kirjan poistaminen
-  - Vain omia kirjoja voi poistaa
-
-Ylläpitäjän toiminnot:
-* Järjestelmään kirjautuminen
-  - Tunnus esiasetettu, onnistuu jos tunnus ja salasana ovat oikein (?)
-* Kaikkien kirjojen listaus
-* Kirjahaku tietyn tiedon/tietojen perusteella
-* Kaikkien käyttäjien tunnuksien muokkaaminen
-* Kaikkien käyttäjien tunnuksien poistaminen
-  - Yhden kerrallaan tai kaikkien pyyhkiminen pois
-* Kaikkien käyttäjien kirjojen muokkaus
-* Kaikkien käyttäjien kirjojen poistaminen
