@@ -12,7 +12,7 @@ import kirjamuistio.logiikka.Kirja;
 
 /**
  * Käyttöliittymä-luokka toimii ohjelman graafisen käyttöliittymän keskuksena
- * 
+ *
  * @author Karita Ojala
  */
 public class Kayttoliittyma implements Runnable {
@@ -39,41 +39,22 @@ public class Kayttoliittyma implements Runnable {
     private void luoKomponentit(Container container) {
         JTabbedPane tabbedPane = new JTabbedPane();
 
-        JComponent panel1 = makeTextPanel("Omistamieni kirjojen hallinta");
-        tabbedPane.addTab("Omistetut kirjat", panel1);
-        tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
-        panel1.setLayout(new BorderLayout());
-        JButton nayta = new JButton("Näytä lista omistamani kirjoista");
-
         //Testausta varten väliaikaisesti tässä
         Kirjalista kirjalista = new Omistetut();
         kirjalista.lisaaKirja(new Kirja("The Selfish Gene", "Richard Dawkins", 1976));
         kirjalista.lisaaKirja(new Kirja("The God Delusion", "Richard Dawkins", 1980));
 
-        JTextField tekstikentta = new JTextField();
-        //tekstikentta.setText(kirjalista.toString());
-        panel1.add(tekstikentta, BorderLayout.CENTER);
+        Kirjanakyma omistetut = new Kirjanakyma(kirjalista, "Omistamieni kirjojen hallinta");
+        tabbedPane.addTab("Omistetut kirjat", omistetut);
+        tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
-        //Tapahtumakuuntelija
-        nayta.addActionListener(new NapinKuuntelija(tekstikentta, kirjalista.kirjalista()));
-        panel1.add(nayta, BorderLayout.NORTH);
-
-        JComponent panel2 = makeTextPanel("Haluamieni kirjojen hallinta");
-        tabbedPane.addTab("Halutut kirjat", panel2);
+        Kirjanakyma halutut = new Kirjanakyma(kirjalista, "Haluamieni kirjojen hallinta");
+        tabbedPane.addTab("Halutut kirjat", halutut);
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
         container.add(tabbedPane);
 
         tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-    }
-
-    protected JComponent makeTextPanel(String text) {
-        JPanel panel = new JPanel(false);
-        JLabel filler = new JLabel(text);
-        filler.setHorizontalAlignment(JLabel.CENTER);
-        panel.setLayout(new GridLayout(1, 1));
-        panel.add(filler);
-        return panel;
     }
 
     public JFrame getFrame() {

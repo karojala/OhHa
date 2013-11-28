@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 /**
- * Halutut on Kirjalistan erikoistapaus, joka toimii varastona halutuille kirjoille
- * Se poikkeaa (tulevaisuudessa) pieniltä osin Omistetut-luokasta
+ * Halutut on Kirjalistan erikoistapaus, joka toimii varastona halutuille
+ * kirjoille Se poikkeaa (tulevaisuudessa) pieniltä osin Omistetut-luokasta
+ *
  * @author Karita Ojala
  */
 public class Halutut implements Kirjalista {
@@ -70,7 +71,11 @@ public class Halutut implements Kirjalista {
     public String nimiHaku(String nimi) {
         String nimisiisti = siistiMerkkijono(nimi);
 
-        return this.kirjat.get(nimisiisti).toString();
+        if (!nimi.isEmpty()) {
+            return this.kirjat.get(nimisiisti).toString();
+        }
+        return null;
+
     }
 
     @Override
@@ -82,8 +87,11 @@ public class Halutut implements Kirjalista {
                 kirjatMerkkijonona += kirja + "\n";
             }
         }
+        if (!kirjoittaja.isEmpty() && !kirjatMerkkijonona.isEmpty()) {
+            return kirjatMerkkijonona;
+        }
 
-        return kirjatMerkkijonona;
+        return null;
     }
 
     @Override
@@ -96,7 +104,10 @@ public class Halutut implements Kirjalista {
             }
         }
 
-        return kirjatMerkkijonona;
+        if (julkvuosi != 0 && !kirjatMerkkijonona.isEmpty()) {
+            return kirjatMerkkijonona;
+        }
+        return null;
     }
 
     @Override

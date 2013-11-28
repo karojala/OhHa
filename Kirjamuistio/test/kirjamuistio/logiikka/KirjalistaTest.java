@@ -17,6 +17,7 @@ public class KirjalistaTest {
     public void setUp() {
         kirjalista = new Omistetut();
         kirja = new Kirja("The Selfish Gene", "Richard Dawkins", 1976);
+        kirjalista.lisaaKirja(kirja);
     }
 
     @Test
@@ -28,39 +29,47 @@ public class KirjalistaTest {
 
     @Test
     public void kirjanLisaaminenOnnistuu() {
-        kirjalista.lisaaKirja(kirja);
         assertTrue(kirjalista.onkoKirja(kirja));
     }
 
     @Test
     public void kirjanPoistaminenOnnistuu() {
-        kirjalista.lisaaKirja(kirja);
         kirjalista.poistaKirja(kirja.getNimi());
         assertFalse(kirjalista.onkoKirja(kirja));
     }
 
-    /*
-     * @Test public void samaaKirjaaEiLisataToiste() {
-     * kirjalista.lisaaKirja(kirja);
-    }
-     */
     @Test
     public void nimiHakuToimii() {
-        kirjalista.lisaaKirja(kirja);
         assertEquals("'The Selfish Gene', Richard Dawkins, 1976", kirjalista.nimiHaku(kirja.getNimi()));
     }
 
     @Test
     public void kirjoittajaHakuToimii() {
-        kirjalista.lisaaKirja(kirja);
         String tulos = kirjalista.kirjoittajaHaku(kirja.getKirjoittaja());
         assertEquals("'The Selfish Gene', Richard Dawkins, 1976" + "\n", tulos);
     }
 
     @Test
     public void julkaisuvuosiHakuToimii() {
-        kirjalista.lisaaKirja(kirja);
         String tulos = kirjalista.julkaisuvuosiHaku(kirja.getJulkaisuvuosi());
         assertEquals("'The Selfish Gene', Richard Dawkins, 1976" + "\n", tulos);
+    }
+    
+    @Test
+    public void nimiHakuTyhjallaKentalla() {
+        String tulos = kirjalista.nimiHaku("");
+        assertEquals(null, tulos);
+    }
+    
+    @Test
+    public void kirjoittajaHakuTyhjallaKentalla() {
+        String tulos = kirjalista.kirjoittajaHaku("");
+        assertEquals(null, tulos);
+    }
+    
+    @Test
+    public void julkvuosiHakuNollalla() {
+        String tulos = kirjalista.julkaisuvuosiHaku(0);
+        assertEquals(null, tulos);
     }
 }

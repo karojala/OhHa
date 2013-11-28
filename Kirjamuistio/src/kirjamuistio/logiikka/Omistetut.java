@@ -90,20 +90,28 @@ public class Omistetut implements Kirjalista {
     public String nimiHaku(String nimi) {
         String nimisiisti = siistiMerkkijono(nimi);
 
-        return this.kirjat.get(nimisiisti).toString();
+        if (!nimi.isEmpty()) {
+            return this.kirjat.get(nimisiisti).toString();
+        }
+        return null;
+        
     }
 
     @Override
     public String kirjoittajaHaku(String kirjoittaja) {
+        String nimisiisti = siistiMerkkijono(kirjoittaja);
         String kirjatMerkkijonona = "";
 
         for (Kirja kirja : this.kirjat.values()) {
-            if (kirja.getKirjoittaja().equalsIgnoreCase(kirjoittaja)) {
+            if (kirja.getKirjoittaja().contains(kirjoittaja)) {
                 kirjatMerkkijonona += kirja + "\n";
             }
         }
+        if (!kirjoittaja.isEmpty() && !kirjatMerkkijonona.isEmpty()) {
+            return kirjatMerkkijonona;
+        }
 
-        return kirjatMerkkijonona;
+        return null;
     }
 
     @Override
@@ -115,8 +123,11 @@ public class Omistetut implements Kirjalista {
                 kirjatMerkkijonona += kirja + "\n";
             }
         }
-
-        return kirjatMerkkijonona;
+        
+        if(julkvuosi != 0 && !kirjatMerkkijonona.isEmpty()) {
+            return kirjatMerkkijonona;
+        }
+        return null;
     }
 
     @Override
