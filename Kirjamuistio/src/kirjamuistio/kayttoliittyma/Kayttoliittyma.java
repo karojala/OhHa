@@ -35,6 +35,10 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
+    /**
+     * Luodaan osat/palaset, mm. välilehdet, JFrameen
+     * @param container
+     */
     private void luoKomponentit(Container container) {
         JTabbedPane tabbedPane = new JTabbedPane();
 

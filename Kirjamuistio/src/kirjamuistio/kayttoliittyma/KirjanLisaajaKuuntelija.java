@@ -9,8 +9,8 @@ import java.util.*;
 
 /**
  * KirjanLisaajaKuuntelija on tapahtumakuuntelija, jonka tarkoituksena on
- * toteuttaa napinpainallusominaisuus, jonka tuloksena kirja lisätään listaan.
- *
+ * toteuttaa napinpainallusominaisuus, jonka tuloksena kirja lisätään listaan. 
+ * TÄLLÄ HETKELLÄ TARPEETON. 
  * @author Karita Ojala
  */
 public class KirjanLisaajaKuuntelija implements ActionListener {

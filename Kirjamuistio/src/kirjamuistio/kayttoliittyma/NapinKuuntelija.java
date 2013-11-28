@@ -11,7 +11,7 @@ import kirjamuistio.logiikka.Kirjalista;
 /**
  * NapinKuuntelija on tapahtumakuuntelija, jonka tarkoituksena on toteuttaa
  * napinpainallusominaisuus, jonka tuloksena käyttöliittymän ikkunaan ilmestyy
- * lista kirjoista
+ * lista kirjoista tai näkymä, josta voi lisätä kirjan kirjalistaan. 
  * @author Karita Ojala
  */
 public class NapinKuuntelija implements ActionListener {
@@ -27,7 +27,7 @@ public class NapinKuuntelija implements ActionListener {
     }
     
     /**
-     * Napin painalluksen jälkeen asettaa tekstikentän tekstiksi halutun tekstin
+     * Napin painalluksen jälkeen suorittaa jonkin toiminnon. 
      * @param e Tapahtuma
      */
     public void actionPerformed(ActionEvent e) {
