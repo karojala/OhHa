@@ -11,34 +11,38 @@ import kirjamuistio.logiikka.Kirjalista;
  * @author karojala
  */
 public class Kirjanakyma extends JPanel {
-    
+
     private Kirjalista kirjalista;
-    
-    public Kirjanakyma(Kirjalista kirjalista, String nimi) {
+
+    public Kirjanakyma(Kirjalista kirjalista) {
         super(false);
         this.kirjalista = kirjalista;
-        teeSisalto(nimi);
+        teeSisalto();
     }
-    
-    public void teeSisalto(String nimi) {
-        JLabel filler = new JLabel(nimi);
-        filler.setHorizontalAlignment(JLabel.CENTER);
+
+    public void teeSisalto() {
         /*this.setLayout(new GridLayout(1, 1));*/
-        this.setLayout(new BorderLayout());
-        this.add(filler);
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        ListausNakyma listaus = new ListausNakyma();
+        /*TextArea tekstikentta = new JTextArea();
+        this.add(tekstikentta, BorderLayout.CENTER);*/
+        JLabel tayte = new JLabel("Tähän tulee nappia painamalla jotain");
+        this.add(tayte, BorderLayout.CENTER);
         
-        JTextField tekstikentta = new JTextField();
-        this.add(tekstikentta, BorderLayout.CENTER);
+        ListausNakyma listaus = new ListausNakyma(tayte, kirjalista);
+        this.add(listaus);
+        
+        LisaysNakyma lisays = new LisaysNakyma();
+        this.add(lisays);
 
-        //Napit yläreunaan
-        JButton nayta = new JButton("Näytä lista kirjoista");
-        JButton lisaa = new JButton("Lisää kirja");
-        //Tapahtumakuuntelijat
-        nayta.addActionListener(new NapinKuuntelija(tekstikentta, kirjalista.kirjalista()));
-        this.add(nayta, BorderLayout.NORTH);
-        lisaa.addActionListener(new NapinKuuntelija(tekstikentta, kirjalista.kirjalista()));
-        this.add(lisaa, BorderLayout.NORTH);
+        lisaaNappi("Näytä lista kirjoista", this, tayte, listaus);
+        lisaaNappi("Lisää kirja", this, tayte, lisays);
+    }
+
+    private void lisaaNappi(String teksti, Container container, JComponent sisalto, Nakyma nakyma) {
+        JButton nappi = new JButton(teksti);
+        nappi.setAlignmentX(Component.TOP_ALIGNMENT);
+        nappi.addActionListener(new NapinKuuntelija(sisalto, nakyma, this.kirjalista));
+        container.add(nappi);
     }
 }

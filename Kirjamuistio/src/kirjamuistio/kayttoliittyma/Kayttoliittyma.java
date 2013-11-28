@@ -25,7 +25,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Kirjamuistio");
-        frame.setPreferredSize(new Dimension(1000, 800));
+        frame.setPreferredSize(new Dimension(600, 400));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -35,7 +35,6 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
-    // Tämä pitää EHDOTTOMASTI jakaa eri metodeihin ainakin, ellei luokkiin
     private void luoKomponentit(Container container) {
         JTabbedPane tabbedPane = new JTabbedPane();
 
@@ -48,11 +47,12 @@ public class Kayttoliittyma implements Runnable {
         halututlista.lisaaKirja(new Kirja("Abarat", "Clive Barker", 2000));
         halututlista.lisaaKirja(new Kirja("Pride and Prejudice", "Jane Austen", 1813));
 
-        Kirjanakyma omistetut = new Kirjanakyma(omistetutlista, "Omistamieni kirjojen hallinta");
+        // Luodaan välilehdet eli tabit omistetuille ja halutuille kirjoille
+        Kirjanakyma omistetut = new Kirjanakyma(omistetutlista);
         tabbedPane.addTab("Omistetut kirjat", omistetut);
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
-        Kirjanakyma halutut = new Kirjanakyma(halututlista, "Haluamieni kirjojen hallinta");
+        Kirjanakyma halutut = new Kirjanakyma(halututlista);
         tabbedPane.addTab("Halutut kirjat", halutut);
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
