@@ -1,4 +1,5 @@
-﻿OhHa
+﻿OhHa: Kirjamuistio
 ====
 
-Ohjelmoinnin harjoitustyö
+Ohjelmoinnin harjoitustyö, 2. periodi 2013
+Karita Ojala
