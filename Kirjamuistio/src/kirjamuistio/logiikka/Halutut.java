@@ -76,11 +76,13 @@ public class Halutut implements Kirjalista {
                 kirjatMerkkijonona += kirja + "\n";
             }
         }
-        if (!nimi.isEmpty() && !kirjatMerkkijonona.isEmpty()) {
-            return kirjatMerkkijonona;
-        }
 
-        return null;
+        if (nimi.isEmpty()) {
+            return "Nimihakua ei voi tehdä tyhjällä kentällä";
+        } else if (kirjatMerkkijonona.isEmpty()) {
+            return "Hakemallasi nimellä ei löytynyt yhtäkään kirjaa";
+        }
+        return kirjatMerkkijonona;
 
     }
 
@@ -94,11 +96,13 @@ public class Halutut implements Kirjalista {
                 kirjatMerkkijonona += kirja + "\n";
             }
         }
-        if (!kirjoittaja.isEmpty() && !kirjatMerkkijonona.isEmpty()) {
-            return kirjatMerkkijonona;
-        }
 
-        return null;
+        if (kirjoittaja.isEmpty()) {
+            return "Kirjoittajahakua ei voi tehdä tyhjällä kentällä";
+        } else if (kirjatMerkkijonona.isEmpty()) {
+            return "Hakemallasi kirjoittajalla ei löytynyt yhtäkään kirjaa";
+        }
+        return kirjatMerkkijonona;
     }
 
     @Override
@@ -111,10 +115,12 @@ public class Halutut implements Kirjalista {
             }
         }
 
-        if (julkvuosi != 0 && !kirjatMerkkijonona.isEmpty()) {
-            return kirjatMerkkijonona;
+        if (julkvuosi == 0) {
+            return "Julkaisuvuosi ei voi olla 0";
+        } else if (kirjatMerkkijonona.isEmpty()) {
+            return "Hakemallasi julkaisuvuodella ei löytynyt yhtäkään kirjaa";
         }
-        return null;
+        return kirjatMerkkijonona;
     }
 
     @Override

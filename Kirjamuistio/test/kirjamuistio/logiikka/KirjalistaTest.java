@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 /**
  * KirjalistaTest-luokka testaa Kirjalista-luokan metodien toimintaa
- * 
+ *
  * @author Karita Ojala
  */
 public class KirjalistaTest {
@@ -55,22 +55,40 @@ public class KirjalistaTest {
         String tulos = kirjalista.julkaisuvuosiHaku(kirja.getJulkaisuvuosi());
         assertEquals("'The Selfish Gene', Richard Dawkins, 1976" + "\n", tulos);
     }
-    
+
     @Test
     public void nimiHakuTyhjallaKentalla() {
         String tulos = kirjalista.nimiHaku("");
-        assertEquals(null, tulos);
+        assertEquals("Nimihakua ei voi tehdä tyhjällä kentällä", tulos);
     }
-    
+
+    @Test
+    public void nimiHakuEiLoydy() {
+        String tulos = kirjalista.nimiHaku("Liisa Ihmemaassa");
+        assertEquals("Hakemallasi nimellä ei löytynyt yhtäkään kirjaa", tulos);
+    }
+
     @Test
     public void kirjoittajaHakuTyhjallaKentalla() {
         String tulos = kirjalista.kirjoittajaHaku("");
-        assertEquals(null, tulos);
+        assertEquals("Kirjoittajahakua ei voi tehdä tyhjällä kentällä", tulos);
     }
-    
+
+    @Test
+    public void kirjoittajaHakuEiLoydy() {
+        String tulos = kirjalista.kirjoittajaHaku("Albert Einstein");
+        assertEquals("Hakemallasi kirjoittajalla ei löytynyt yhtäkään kirjaa", tulos);
+    }
+
     @Test
     public void julkvuosiHakuNollalla() {
         String tulos = kirjalista.julkaisuvuosiHaku(0);
-        assertEquals(null, tulos);
+        assertEquals("Julkaisuvuosi ei voi olla 0", tulos);
+    }
+
+    @Test
+    public void julkvuosiHakuEiLoydy() {
+        String tulos = kirjalista.julkaisuvuosiHaku(1950);
+        assertEquals("Hakemallasi julkaisuvuodella ei löytynyt yhtäkään kirjaa", tulos);
     }
 }
