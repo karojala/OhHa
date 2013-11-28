@@ -40,7 +40,8 @@ public class KirjalistaTest {
 
     @Test
     public void nimiHakuToimii() {
-        assertEquals("'The Selfish Gene', Richard Dawkins, 1976", kirjalista.nimiHaku(kirja.getNimi()));
+        String tulos = kirjalista.nimiHaku(kirja.getNimi());
+        assertEquals("'The Selfish Gene', Richard Dawkins, 1976" + "\n", tulos);
     }
 
     @Test

@@ -67,23 +67,30 @@ public class Halutut implements Kirjalista {
     }
 
     @Override
-    // Myöhemmin toteutus, että voi hakea epätäydellisellä nimellä?
     public String nimiHaku(String nimi) {
         String nimisiisti = siistiMerkkijono(nimi);
+        String kirjatMerkkijonona = "";
 
-        if (!nimi.isEmpty()) {
-            return this.kirjat.get(nimisiisti).toString();
+        for (Kirja kirja : this.kirjat.values()) {
+            if (siistiMerkkijono(kirja.getNimi()).contains(nimisiisti)) {
+                kirjatMerkkijonona += kirja + "\n";
+            }
         }
+        if (!nimi.isEmpty() && !kirjatMerkkijonona.isEmpty()) {
+            return kirjatMerkkijonona;
+        }
+
         return null;
 
     }
 
     @Override
     public String kirjoittajaHaku(String kirjoittaja) {
+        String nimisiisti = siistiMerkkijono(kirjoittaja);
         String kirjatMerkkijonona = "";
 
         for (Kirja kirja : this.kirjat.values()) {
-            if (kirja.getKirjoittaja().equalsIgnoreCase(kirjoittaja)) {
+            if (siistiMerkkijono(kirja.getKirjoittaja()).contains(nimisiisti)) {
                 kirjatMerkkijonona += kirja + "\n";
             }
         }
@@ -138,6 +145,6 @@ public class Halutut implements Kirjalista {
             kirjatMerkkijonona += "  " + kirja + "\n";
         }
 
-        return "Käyttäjän haluamat kirjat: \n" + kirjatMerkkijonona;
+        return kirjatMerkkijonona;
     }
 }
