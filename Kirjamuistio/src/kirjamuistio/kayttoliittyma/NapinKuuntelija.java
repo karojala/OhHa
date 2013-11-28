@@ -1,7 +1,7 @@
 
 package kirjamuistio.kayttoliittyma;
 
-import kirjamuistio.logiikka.Omistetut;
+import kirjamuistio.logiikka.Kirjalista;
 
 import java.awt.event.*;
 import javax.swing.*;

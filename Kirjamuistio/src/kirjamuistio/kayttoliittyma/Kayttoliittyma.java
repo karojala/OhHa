@@ -40,15 +40,19 @@ public class Kayttoliittyma implements Runnable {
         JTabbedPane tabbedPane = new JTabbedPane();
 
         //Testausta varten väliaikaisesti tässä
-        Kirjalista kirjalista = new Omistetut();
-        kirjalista.lisaaKirja(new Kirja("The Selfish Gene", "Richard Dawkins", 1976));
-        kirjalista.lisaaKirja(new Kirja("The God Delusion", "Richard Dawkins", 1980));
+        Kirjalista omistetutlista = new Omistetut();
+        omistetutlista.lisaaKirja(new Kirja("The Selfish Gene", "Richard Dawkins", 1976));
+        omistetutlista.lisaaKirja(new Kirja("The God Delusion", "Richard Dawkins", 1980));
 
-        Kirjanakyma omistetut = new Kirjanakyma(kirjalista, "Omistamieni kirjojen hallinta");
+        Kirjalista halututlista = new Omistetut();
+        halututlista.lisaaKirja(new Kirja("Abarat", "Clive Barker", 2000));
+        halututlista.lisaaKirja(new Kirja("Pride and Prejudice", "Jane Austen", 1813));
+
+        Kirjanakyma omistetut = new Kirjanakyma(omistetutlista, "Omistamieni kirjojen hallinta");
         tabbedPane.addTab("Omistetut kirjat", omistetut);
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
-        Kirjanakyma halutut = new Kirjanakyma(kirjalista, "Haluamieni kirjojen hallinta");
+        Kirjanakyma halutut = new Kirjanakyma(halututlista, "Haluamieni kirjojen hallinta");
         tabbedPane.addTab("Halutut kirjat", halutut);
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
