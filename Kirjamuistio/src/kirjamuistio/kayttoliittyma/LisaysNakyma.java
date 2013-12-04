@@ -13,6 +13,8 @@ import kirjamuistio.logiikka.Kirjalista;
  */
 public class LisaysNakyma implements Nakyma {
 
+    protected static final String nimiKenttaTeksti = "Kirjan nimi";
+    
     private Kirjalista kirjalista;
     private JPanel ikkuna;
     
@@ -24,9 +26,13 @@ public class LisaysNakyma implements Nakyma {
         this.kirjalista = kirjalista;
         this.ikkuna = ikkuna;
         
-        this.nimi = new JTextField("Kirjan nimi: ", 5);
-        this.kirjoittaja = new JTextField("Kirjan kirjoittaja: ", 5);
-        this.julkvuosi = new JTextField("Kirjan julkaisuvuosi: ", 5);
+        this.nimi = new JTextField(10);
+        this.nimi.setActionCommand(nimiKenttaTeksti);
+        JLabel nimiKenttaLabel = new JLabel(nimiKenttaTeksti + ": ");
+        nimiKenttaLabel.setLabelFor(this.nimi);
+        
+        this.kirjoittaja = new JTextField(10);
+        this.julkvuosi = new JTextField(10);
     }
 
     @Override
