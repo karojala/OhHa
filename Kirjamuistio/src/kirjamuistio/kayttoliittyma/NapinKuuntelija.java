@@ -16,22 +16,23 @@ import kirjamuistio.logiikka.Kirjalista;
  */
 public class NapinKuuntelija implements ActionListener {
     
-    private JComponent sisalto;
     private Nakyma nakyma;
     private Kirjalista kirjalista;
+    private JPanel ikkuna;
     
-    public NapinKuuntelija(JComponent sisalto, Nakyma nakyma, Kirjalista kirjalista) {
-        this.sisalto = sisalto;
+    public NapinKuuntelija(JPanel ikkuna, Nakyma nakyma, Kirjalista kirjalista) {
         this.nakyma = nakyma;
         this.kirjalista = kirjalista;
+        this.ikkuna = ikkuna;
     }
     
     /**
      * Napin painalluksen jälkeen suorittaa jonkin toiminnon. 
      * @param e Tapahtuma
      */
+    @Override
     public void actionPerformed(ActionEvent e) {
-        this.nakyma.asetaNakyma(sisalto, kirjalista);
+        this.nakyma.asetaNakyma();
     }
     
 }

@@ -18,6 +18,6 @@ public interface Nakyma {
      * @param teksti
      * @param kirjalista Kyseessä oleva kirjalista (omistetut tai halutut) 
      */
-    public void asetaNakyma(JComponent teksti, Kirjalista kirjalista);
+    public void asetaNakyma();
     
 }

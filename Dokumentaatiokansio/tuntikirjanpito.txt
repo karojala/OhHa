@@ -1,5 +1,8 @@
 ﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
+4.12.2013 keskiviikko 2 h
+Käyttöliittymän jatkoa
+
 28.11.2013 torstai 5 h
 Hakutoimintojen hiominen, lisää testejä, käyttöliittymän selkiyttäminen, jakaminen paremmin osiin ja jatkaminen, JavaDoc lisäily, uusi sekvenssikaavio
 

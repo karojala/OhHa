@@ -17,7 +17,7 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
 
     private Kirjalista kirjalista;
     
-    public KirjanLisaajaKuuntelija(Kirjalista kirjalista, Kirja kirja) {
+    public KirjanLisaajaKuuntelija(Kirjalista kirjalista) {
         this.kirjalista = kirjalista;
     }
     

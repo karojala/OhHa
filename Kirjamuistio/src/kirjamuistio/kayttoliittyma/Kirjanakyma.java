@@ -21,28 +21,28 @@ public class Kirjanakyma extends JPanel {
     }
 
     public void teeSisalto() {
-        /*this.setLayout(new GridLayout(1, 1));*/
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         /*TextArea tekstikentta = new JTextArea();
         this.add(tekstikentta, BorderLayout.CENTER);*/
-        JLabel tayte = new JLabel("Tähän tulee nappia painamalla jotain");
-        this.add(tayte, BorderLayout.CENTER);
+        JPanel ikkuna = new JPanel();
+        ikkuna.setLayout(new BorderLayout());
+        this.add(ikkuna, BorderLayout.CENTER);
         
-        ListausNakyma listaus = new ListausNakyma(tayte, kirjalista);
-        this.add(listaus);
+        ListausNakyma listaus = new ListausNakyma(kirjalista, ikkuna);
+        /*this.add(listaus);*/
         
-        LisaysNakyma lisays = new LisaysNakyma();
-        this.add(lisays);
+        LisaysNakyma lisays = new LisaysNakyma(kirjalista, ikkuna);
+        /*this.add(lisays);*/
 
-        lisaaNappi("Näytä lista kirjoista", this, tayte, listaus);
-        lisaaNappi("Lisää kirja", this, tayte, lisays);
+        lisaaNappi("Näytä lista kirjoista", this, ikkuna, listaus);
+        lisaaNappi("Lisää kirja", this, ikkuna, lisays);
     }
 
-    private void lisaaNappi(String teksti, Container container, JComponent sisalto, Nakyma nakyma) {
+    private void lisaaNappi(String teksti, Container container, JPanel ikkuna, Nakyma nakyma) {
         JButton nappi = new JButton(teksti);
-        nappi.setAlignmentX(Component.TOP_ALIGNMENT);
-        nappi.addActionListener(new NapinKuuntelija(sisalto, nakyma, this.kirjalista));
+        nappi.setAlignmentX(Component.LEFT_ALIGNMENT);
+        nappi.addActionListener(new NapinKuuntelija(ikkuna, nakyma, this.kirjalista));
         container.add(nappi);
     }
 }
