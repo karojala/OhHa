@@ -23,20 +23,17 @@ public class Kirjanakyma extends JPanel {
     public void teeSisalto() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        /*TextArea tekstikentta = new JTextArea();
-        this.add(tekstikentta, BorderLayout.CENTER);*/
         JPanel ikkuna = new JPanel();
         ikkuna.setLayout(new BorderLayout());
         this.add(ikkuna, BorderLayout.CENTER);
         
         ListausNakyma listaus = new ListausNakyma(kirjalista, ikkuna);
-        /*this.add(listaus);*/
         
         LisaysNakyma lisays = new LisaysNakyma(kirjalista, ikkuna);
-        /*this.add(lisays);*/
 
         lisaaNappi("Näytä lista kirjoista", this, ikkuna, listaus);
         lisaaNappi("Lisää kirja", this, ikkuna, lisays);
+        lisaaNappi("Poista kirja", this, ikkuna, listaus);
     }
 
     private void lisaaNappi(String teksti, Container container, JPanel ikkuna, Nakyma nakyma) {

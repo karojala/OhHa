@@ -4,8 +4,11 @@ import kirjamuistio.logiikka.Kirjalista;
 import kirjamuistio.logiikka.Kirja;
 
 import java.awt.event.*;
+import java.io.*;
 import javax.swing.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * KirjanLisaajaKuuntelija on tapahtumakuuntelija, jonka tarkoituksena on
@@ -32,14 +35,32 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
      * 
      * @param e Tapahtuma
      */
+    @Override
     public void actionPerformed(ActionEvent e) {
         String knimi = this.nimi.getText();
         String kkirj = this.kirj.getText();
         int vuosi = Integer.parseInt(this.jvuosi.getText());
         Kirja kirja = new Kirja(knimi, kkirj, vuosi);
         this.kirjalista.lisaaKirja(kirja);
+        try {
+            kirjoitusTiedostoon(kirja.toString());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(KirjanLisaajaKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(KirjanLisaajaKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.nimi.setText("");
         this.kirj.setText("");
         this.jvuosi.setText("");
+    }
+    
+    // Muutettava niin, että erilliset tekstitiedostot omistetuille ja halutuille kirjoille
+    public void kirjoitusTiedostoon(String teksti) throws FileNotFoundException, IOException {
+        File statText = new File("kirjalista.txt");
+        FileOutputStream is = new FileOutputStream(statText);
+        OutputStreamWriter osw = new OutputStreamWriter(is);    
+        Writer w = new BufferedWriter(osw);
+        w.write(teksti);
+        w.close();
     }
 }
