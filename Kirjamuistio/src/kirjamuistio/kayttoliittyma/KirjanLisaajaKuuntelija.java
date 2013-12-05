@@ -44,10 +44,8 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
         this.kirjalista.lisaaKirja(kirja);
         try {
             kirjoitusTiedostoon(kirja.toString());
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(KirjanLisaajaKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(KirjanLisaajaKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException error) {
+            System.err.println("Problem writing to the file kirjalista.txt");
         }
         this.nimi.setText("");
         this.kirj.setText("");
@@ -56,15 +54,11 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
 
     // Muutettava niin, että erilliset tekstitiedostot omistetuille ja halutuille kirjoille
     public void kirjoitusTiedostoon(String teksti) throws FileNotFoundException, IOException {
-        try {
             File statText = new File("kirjalista.txt");
             FileOutputStream is = new FileOutputStream(statText);
             OutputStreamWriter osw = new OutputStreamWriter(is);
             Writer w = new BufferedWriter(osw);
             w.write(teksti);
             w.close();
-        } catch (IOException e) {
-            System.err.println("Problem writing to the file kirjalista.txt");
-        }
     }
 }
