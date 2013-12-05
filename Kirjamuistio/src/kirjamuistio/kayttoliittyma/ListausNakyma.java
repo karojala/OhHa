@@ -27,6 +27,7 @@ public class ListausNakyma implements Nakyma {
     @Override
     public void asetaNakyma() {
         this.ikkuna.removeAll();
+        this.ikkuna.setLayout(new BorderLayout());
         this.tekstikentta.setText(this.kirjalista.toString());
         this.tekstikentta.setEditable(false);
         this.ikkuna.add(this.scroll);

@@ -13,11 +13,10 @@ import kirjamuistio.logiikka.Kirjalista;
  */
 public class LisaysNakyma implements Nakyma {
 
-    protected static final String nimiKenttaTeksti = "Kirjan nimi";
-    
+    /*protected static final String nimiKenttaTeksti = "Kirjan nimi";*/
     private Kirjalista kirjalista;
     private JPanel ikkuna;
-    
+    private SpringLayout layout;
     private JTextField nimi;
     private JTextField kirjoittaja;
     private JTextField julkvuosi;
@@ -25,32 +24,46 @@ public class LisaysNakyma implements Nakyma {
     public LisaysNakyma(Kirjalista kirjalista, JPanel ikkuna) {
         this.kirjalista = kirjalista;
         this.ikkuna = ikkuna;
-        
-        this.nimi = new JTextField(10);
-        this.nimi.setActionCommand(nimiKenttaTeksti);
-        JLabel nimiKenttaLabel = new JLabel(nimiKenttaTeksti + ": ");
-        nimiKenttaLabel.setLabelFor(this.nimi);
-        
-        this.kirjoittaja = new JTextField(10);
-        this.julkvuosi = new JTextField(10);
+        this.layout = new SpringLayout();
+
+        this.nimi = new JTextField(20);
+        this.kirjoittaja = new JTextField(20);
+        this.julkvuosi = new JTextField(20);
     }
 
     @Override
     public void asetaNakyma() {
         this.ikkuna.removeAll();
-        this.ikkuna.setLayout(new BoxLayout(this.ikkuna, BoxLayout.Y_AXIS));
-        this.ikkuna.add(this.nimi, Component.TOP_ALIGNMENT);
-        this.ikkuna.add(this.kirjoittaja, Component.TOP_ALIGNMENT);
-        this.ikkuna.add(this.julkvuosi, Component.TOP_ALIGNMENT);
-        lisaysNappi(this.ikkuna);
+        this.ikkuna.setLayout(this.layout);
+
+        lisaaKomponentti("Kirjan nimi: ", this.nimi, 5);
+        lisaaKomponentti("Kirjan kirjoittaja: ", this.kirjoittaja, 35);
+        lisaaKomponentti("Kirjan julkaisuvuosi: ", this.julkvuosi, 65);
+        lisaaNappi();
+
         this.ikkuna.revalidate();
         this.ikkuna.repaint();
     }
     
-    private void lisaysNappi(JPanel ikkuna) {
+    public void lisaaKomponentti(String teksti, JTextField kentta, int northraja) {
+        JLabel label = new JLabel(teksti);
+        this.ikkuna.add(label);
+        this.ikkuna.add(kentta);
+        asetaRajat(this.layout, label, kentta, northraja);
+    }
+    
+    public void lisaaNappi() {
         JButton nappi = new JButton("Valmis");
-        nappi.setAlignmentY(Component.CENTER_ALIGNMENT);
-        nappi.addActionListener(new KirjanLisaajaKuuntelija(this.kirjalista));
-        ikkuna.add(nappi);
+        nappi.addActionListener(new KirjanLisaajaKuuntelija(this.kirjalista, this.nimi, this.kirjoittaja, this.julkvuosi));
+        this.ikkuna.add(nappi);
+        this.layout.putConstraint(SpringLayout.WEST, nappi, 5, SpringLayout.WEST, this.ikkuna);
+        this.layout.putConstraint(SpringLayout.NORTH, nappi, 105, SpringLayout.NORTH, this.ikkuna);
+    }
+    
+    public void asetaRajat(SpringLayout layout, JComponent component, JComponent component2, int northraja) {
+        layout.putConstraint(SpringLayout.WEST, component, 5, SpringLayout.WEST, this.ikkuna);
+        layout.putConstraint(SpringLayout.NORTH, component, northraja, SpringLayout.NORTH, this.ikkuna);
+        layout.putConstraint(SpringLayout.WEST, component2, 5, SpringLayout.EAST, component);
+        layout.putConstraint(SpringLayout.NORTH, component2, northraja, SpringLayout.NORTH, this.ikkuna);
     }
 }
