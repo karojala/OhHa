@@ -41,12 +41,15 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
         String kkirj = this.kirj.getText();
         int vuosi = Integer.parseInt(this.jvuosi.getText());
         Kirja kirja = new Kirja(knimi, kkirj, vuosi);
+        
         this.kirjalista.lisaaKirja(kirja);
+        
         try {
             kirjoitusTiedostoon(kirja.toString());
         } catch (IOException error) {
             System.err.println("Problem writing to the file kirjalista.txt");
         }
+        
         this.nimi.setText("");
         this.kirj.setText("");
         this.jvuosi.setText("");
