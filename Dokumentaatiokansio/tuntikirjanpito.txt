@@ -1,6 +1,9 @@
 ﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
-5.12.2013 torstai
+8.12.2013 sunnuntai
+Käyttöliittymän jatkoa: listausnäkymän tekstikenttä muutettu listaksi, kirjalistan talletus tiedostoon
+
+5.12.2013 torstai 2 h
 Käyttöliittymän jatkoa
 
 4.12.2013 keskiviikko 2 h

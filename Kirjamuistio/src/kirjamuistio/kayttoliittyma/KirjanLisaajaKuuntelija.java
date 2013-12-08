@@ -6,9 +6,6 @@ import kirjamuistio.logiikka.Kirja;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * KirjanLisaajaKuuntelija on tapahtumakuuntelija, jonka tarkoituksena on
@@ -20,12 +17,14 @@ import java.util.logging.Logger;
 public class KirjanLisaajaKuuntelija implements ActionListener {
 
     private Kirjalista kirjalista;
+    private File tiedosto;
     private JTextField nimi;
     private JTextField kirj;
     private JTextField jvuosi;
 
-    public KirjanLisaajaKuuntelija(Kirjalista kirjalista, JTextField nimi, JTextField kirj, JTextField jvuosi) {
+    public KirjanLisaajaKuuntelija(Kirjalista kirjalista, File tiedosto, JTextField nimi, JTextField kirj, JTextField jvuosi) {
         this.kirjalista = kirjalista;
+        this.tiedosto = tiedosto;
         this.nimi = nimi;
         this.kirj = kirj;
         this.jvuosi = jvuosi;
@@ -41,27 +40,26 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
         String kkirj = this.kirj.getText();
         int vuosi = Integer.parseInt(this.jvuosi.getText());
         Kirja kirja = new Kirja(knimi, kkirj, vuosi);
-        
+
         this.kirjalista.lisaaKirja(kirja);
-        
+
         try {
-            kirjoitusTiedostoon(kirja.toString());
+            kirjoitusTiedostoon();
         } catch (IOException error) {
-            System.err.println("Problem writing to the file kirjalista.txt");
+            System.err.println("Problem writing to the file");
         }
-        
+
         this.nimi.setText("");
         this.kirj.setText("");
         this.jvuosi.setText("");
     }
 
     // Muutettava niin, että erilliset tekstitiedostot omistetuille ja halutuille kirjoille
-    public void kirjoitusTiedostoon(String teksti) throws FileNotFoundException, IOException {
-            File statText = new File("kirjalista.txt");
-            FileOutputStream is = new FileOutputStream(statText);
-            OutputStreamWriter osw = new OutputStreamWriter(is);
-            Writer w = new BufferedWriter(osw);
-            w.write(teksti);
-            w.close();
+    public void kirjoitusTiedostoon() throws FileNotFoundException, IOException {
+        FileOutputStream is = new FileOutputStream(this.tiedosto);
+        OutputStreamWriter osw = new OutputStreamWriter(is);
+        try (Writer w = new BufferedWriter(osw)) {
+            w.write(this.kirjalista.toString());
+        }
     }
 }

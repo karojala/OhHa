@@ -3,6 +3,7 @@ package kirjamuistio.kayttoliittyma;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.util.*;
 
 // Tekstikentän testailua varten tällä hetkellä
@@ -52,11 +53,13 @@ public class Kayttoliittyma implements Runnable {
         halututlista.lisaaKirja(new Kirja("Pride and Prejudice", "Jane Austen", 1813));
 
         // Luodaan välilehdet eli tabit omistetuille ja halutuille kirjoille
-        Kirjanakyma omistetut = new Kirjanakyma(omistetutlista);
+        File omtied = new File("omistetutkirjat.txt");
+        Kirjanakyma omistetut = new Kirjanakyma(omistetutlista, omtied);
         tabbedPane.addTab("Omistetut kirjat", omistetut);
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
-        Kirjanakyma halutut = new Kirjanakyma(halututlista);
+        File haltied = new File("halututkirjat.txt");
+        Kirjanakyma halutut = new Kirjanakyma(halututlista, haltied);
         tabbedPane.addTab("Halutut kirjat", halutut);
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 

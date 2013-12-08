@@ -3,6 +3,7 @@ package kirjamuistio.kayttoliittyma;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.util.*;
 import kirjamuistio.logiikka.Kirjalista;
 
@@ -13,10 +14,12 @@ import kirjamuistio.logiikka.Kirjalista;
 public class Kirjanakyma extends JPanel {
 
     private Kirjalista kirjalista;
+    private File tiedosto;
 
-    public Kirjanakyma(Kirjalista kirjalista) {
+    public Kirjanakyma(Kirjalista kirjalista, File tiedosto) {
         super(false);
         this.kirjalista = kirjalista;
+        this.tiedosto = tiedosto;
         teeSisalto();
     }
 
@@ -29,10 +32,10 @@ public class Kirjanakyma extends JPanel {
         
         ListausNakyma listaus = new ListausNakyma(kirjalista, ikkuna);
         
-        LisaysNakyma lisays = new LisaysNakyma(kirjalista, ikkuna);
+        LisaysNakyma lisays = new LisaysNakyma(kirjalista, tiedosto, ikkuna);
 
         lisaaNappi("Näytä lista kirjoista", this, ikkuna, listaus);
-        lisaaNappi("Lisää kirja", this, ikkuna, lisays);
+        lisaaNappi("Lisää uusi kirja", this, ikkuna, lisays);
         lisaaNappi("Poista kirja", this, ikkuna, listaus);
     }
 

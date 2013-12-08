@@ -1,6 +1,7 @@
 package kirjamuistio.kayttoliittyma;
 
 import java.awt.*;
+import java.io.*;
 import javax.swing.*;
 import kirjamuistio.logiikka.Kirjalista;
 
@@ -15,14 +16,16 @@ public class LisaysNakyma implements Nakyma {
 
     /*protected static final String nimiKenttaTeksti = "Kirjan nimi";*/
     private Kirjalista kirjalista;
+    private File tiedosto;
     private JPanel ikkuna;
     private SpringLayout layout;
     private JTextField nimi;
     private JTextField kirjoittaja;
     private JTextField julkvuosi;
 
-    public LisaysNakyma(Kirjalista kirjalista, JPanel ikkuna) {
+    public LisaysNakyma(Kirjalista kirjalista, File tiedosto, JPanel ikkuna) {
         this.kirjalista = kirjalista;
+        this.tiedosto = tiedosto;
         this.ikkuna = ikkuna;
         this.layout = new SpringLayout();
 
@@ -54,7 +57,7 @@ public class LisaysNakyma implements Nakyma {
     
     public void lisaaNappi() {
         JButton nappi = new JButton("Valmis");
-        nappi.addActionListener(new KirjanLisaajaKuuntelija(this.kirjalista, this.nimi, this.kirjoittaja, this.julkvuosi));
+        nappi.addActionListener(new KirjanLisaajaKuuntelija(this.kirjalista, this.tiedosto, this.nimi, this.kirjoittaja, this.julkvuosi));
         this.ikkuna.add(nappi);
         this.layout.putConstraint(SpringLayout.WEST, nappi, 5, SpringLayout.WEST, this.ikkuna);
         this.layout.putConstraint(SpringLayout.NORTH, nappi, 105, SpringLayout.NORTH, this.ikkuna);
