@@ -1,12 +1,11 @@
 package kirjamuistio.kayttoliittyma;
 
-import java.awt.*;
-import java.io.*;
+import java.awt.BorderLayout;
+import java.io.BufferedReader;
+import java.util.ArrayList;
 import javax.swing.*;
 import kirjamuistio.logiikka.Kirja;
-
 import kirjamuistio.logiikka.Kirjalista;
-
 /**
  * Näkymä Kirjanakyman sisällä, jossa napin painalluksesta tulee näkyviin lista
  * kirjoista.
@@ -29,7 +28,7 @@ public class ListausNakyma implements Nakyma {
         this.scroll = new JScrollPane(this.tekstikentta);
     }
 
-    public void teeLista() {
+    private void teeLista() {
         this.model = new DefaultListModel();
         this.tekstikentta = new JList(this.model);
         this.tekstikentta.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -37,7 +36,7 @@ public class ListausNakyma implements Nakyma {
         this.tekstikentta.setVisibleRowCount(-1);
     }
     
-    public void asetaLista() {
+    private void asetaLista() {
         this.model.clear();
         
         for (Kirja kirja : this.kirjalista.kirjalista()) {
@@ -45,39 +44,10 @@ public class ListausNakyma implements Nakyma {
         }
     }
 
-    /*public void haeTiedostosta() {
-        File tiedosto = new File("kirjalista.txt");
-        try {
-            this.reader = new BufferedReader(new FileReader(tiedosto));
-            String teksti;
-            
-            while ((teksti = reader.readLine()) != null) {
-                this.model.addElement(teksti);
-                System.out.println(teksti);
-            }
-            this.tekstikentta.setModel(model);
-            
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }*/
-
     @Override
     public void asetaNakyma() {
         this.ikkuna.removeAll();
         this.ikkuna.setLayout(new BorderLayout());
-        /*this.tekstikentta.setText(this.kirjalista.toString());
-        this.tekstikentta.setEditable(false);*/
         asetaLista();
         this.ikkuna.add(this.scroll);
         this.ikkuna.revalidate();

@@ -45,13 +45,9 @@ public class Kayttoliittyma implements Runnable {
 
         //Testausta varten väliaikaisesti tässä
         Kirjalista omistetutlista = new Omistetut();
-        omistetutlista.lisaaKirja(new Kirja("The Selfish Gene", "Richard Dawkins", 1976));
-        omistetutlista.lisaaKirja(new Kirja("The God Delusion", "Richard Dawkins", 1980));
 
         Kirjalista halututlista = new Omistetut();
-        halututlista.lisaaKirja(new Kirja("Abarat", "Clive Barker", 2000));
-        halututlista.lisaaKirja(new Kirja("Pride and Prejudice", "Jane Austen", 1813));
-
+        
         // Luodaan välilehdet eli tabit omistetuille ja halutuille kirjoille
         File omtied = new File("omistetutkirjat.txt");
         Kirjanakyma omistetut = new Kirjanakyma(omistetutlista, omtied);

@@ -29,20 +29,23 @@ public class Kirjanakyma extends JPanel {
         JPanel ikkuna = new JPanel();
         ikkuna.setLayout(new BorderLayout());
         this.add(ikkuna, BorderLayout.CENTER);
-        
+
         ListausNakyma listaus = new ListausNakyma(kirjalista, ikkuna);
         
         LisaysNakyma lisays = new LisaysNakyma(kirjalista, tiedosto, ikkuna);
+        
+        PoistoNakyma poisto = new PoistoNakyma(kirjalista, tiedosto, ikkuna);
 
         lisaaNappi("Näytä lista kirjoista", this, ikkuna, listaus);
         lisaaNappi("Lisää uusi kirja", this, ikkuna, lisays);
-        lisaaNappi("Poista kirja", this, ikkuna, listaus);
+        lisaaNappi("Poista kirjoja", this, ikkuna, poisto);
     }
 
-    private void lisaaNappi(String teksti, Container container, JPanel ikkuna, Nakyma nakyma) {
+    public JButton lisaaNappi(String teksti, Container container, JPanel ikkuna, Nakyma nakyma) {
         JButton nappi = new JButton(teksti);
         nappi.setAlignmentX(Component.LEFT_ALIGNMENT);
         nappi.addActionListener(new NapinKuuntelija(ikkuna, nakyma, this.kirjalista));
         container.add(nappi);
+        return nappi;
     }
 }
