@@ -1,15 +1,14 @@
 package kirjamuistio.kayttoliittyma;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.io.File;
-import java.util.*;
-
-// Tekstikentän testailua varten tällä hetkellä
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import javax.swing.WindowConstants;
 import kirjamuistio.logiikka.Kirjalista;
 import kirjamuistio.logiikka.Omistetut;
-import kirjamuistio.logiikka.Kirja;
 
 /**
  * Käyttöliittymä-luokka toimii ohjelman graafisen käyttöliittymän keskuksena

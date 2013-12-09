@@ -19,6 +19,7 @@ public interface Kirjalista {
      */
     public boolean tarkistaKirjanTiedot(Kirja kirja);
 
+    public Kirja getKirja(String nimi);
     /**
      * Kirjan lisäysmetodi, joka ensin tarkistaa kirjan tiedot toisen metodin
      * avulla, jonka jälkeen kirjan nimi haetaan siistityn version avulla.

@@ -41,6 +41,12 @@ public class Halutut implements Kirjalista {
     }
 
     @Override
+    public Kirja getKirja(String nimi) {
+        Kirja kirja = this.kirjat.get(nimi);
+        return kirja;
+    }
+    
+    @Override
     public void lisaaKirja(Kirja kirja) {
         if (tarkistaKirjanTiedot(kirja) == false) {
             return;

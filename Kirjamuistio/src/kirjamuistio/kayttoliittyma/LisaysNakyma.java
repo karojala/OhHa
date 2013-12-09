@@ -14,7 +14,6 @@ import kirjamuistio.logiikka.Kirjalista;
  */
 public class LisaysNakyma implements Nakyma {
 
-    /*protected static final String nimiKenttaTeksti = "Kirjan nimi";*/
     private Kirjalista kirjalista;
     private File tiedosto;
     private JPanel ikkuna;

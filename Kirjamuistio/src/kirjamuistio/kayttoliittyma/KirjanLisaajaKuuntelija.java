@@ -54,12 +54,13 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
         this.jvuosi.setText("");
     }
 
-    // Muutettava niin, että erilliset tekstitiedostot omistetuille ja halutuille kirjoille
     public void kirjoitusTiedostoon() throws FileNotFoundException, IOException {
         FileOutputStream is = new FileOutputStream(this.tiedosto);
         OutputStreamWriter osw = new OutputStreamWriter(is);
         try (Writer w = new BufferedWriter(osw)) {
             w.write(this.kirjalista.toString());
+        } finally {
+           is.close();
         }
     }
 }
