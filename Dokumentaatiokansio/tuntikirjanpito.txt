@@ -1,6 +1,6 @@
 ﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
-9.12.2013 maanantai 4 h
+9.12.2013 maanantai 5 h
 Käyttöliittymän jatkoa: kirjojen poiston viimeistely, kirjalistan haku tekstitiedostosta, muutos nappinäkymään, kirjojen muokkaus
 
 8.12.2013 sunnuntai 4 h
