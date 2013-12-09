@@ -42,10 +42,17 @@ public class Halutut implements Kirjalista {
 
     @Override
     public Kirja getKirja(String nimi) {
-        Kirja kirja = this.kirjat.get(nimi);
+        String nimisiisti = siistiMerkkijono(nimi);
+        
+        Kirja kirja = null;
+        if (this.kirjat.containsKey(nimisiisti)) {
+            kirja = this.kirjat.get(nimisiisti);
+        } else {
+            System.out.println("Kirja ei ole listassa.");
+        }
         return kirja;
     }
-    
+
     @Override
     public void lisaaKirja(Kirja kirja) {
         if (tarkistaKirjanTiedot(kirja) == false) {
@@ -154,7 +161,7 @@ public class Halutut implements Kirjalista {
         String kirjatMerkkijonona = "";
 
         for (Kirja kirja : kirjalista()) {
-            kirjatMerkkijonona += "  " + kirja + "\n";
+            kirjatMerkkijonona += kirja + "\n";
         }
 
         return kirjatMerkkijonona;

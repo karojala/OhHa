@@ -92,7 +92,7 @@ public class ListausNakyma implements Nakyma {
         this.alanapit.setLayout(new FlowLayout());
         this.alanapit.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
-        MuokkausNakyma muokkaus = new MuokkausNakyma(this.kirjalista, this.tiedosto, this.ikkuna, this.tekstikentta);
+        MuokkausNakyma muokkaus = new MuokkausNakyma(this.kirjalista, this.tiedosto, this.ikkuna, this.tekstikentta, this.model, this.kentansisalto);
         
         lisaaMuokkausNappi("Muokkaa kirjan tietoja", this.alanapit, muokkaus);
         lisaaPoistoNappi("Poista kirja", this.alanapit);

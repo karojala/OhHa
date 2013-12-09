@@ -1,4 +1,4 @@
-  'The Selfish Gene', Richard Dawkins, 1976
-  'The God Delusion', Richard Dawkins, 1980
-  'Jane Eyre', Charlotte Brontë, 1850
-  'The Greatest Show on Earth', Richard Dawkins, 1985
+'The Selfish Gene', Richard Dawkins, 1976
+'The God Delusion', Richard Dawkins, 2006
+'Jane Eyre', Charlotte Brontë, 1847
+'The Greatest Show on Earth', Richard Dawkins, 2009
