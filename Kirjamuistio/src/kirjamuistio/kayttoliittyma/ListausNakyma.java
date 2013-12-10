@@ -2,14 +2,13 @@ package kirjamuistio.kayttoliittyma;
 
 import java.awt.BorderLayout;
 import java.awt.ComponentOrientation;
-import java.awt.Container;
 import java.awt.FlowLayout;
-import java.io.*;
-import java.nio.charset.Charset;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import javax.swing.*;
 import kirjamuistio.logiikka.Kirja;
@@ -94,23 +93,21 @@ public class ListausNakyma implements Nakyma {
 
         MuokkausNakyma muokkaus = new MuokkausNakyma(this.kirjalista, this.tiedosto, this.ikkuna, this.tekstikentta, this.model, this.kentansisalto);
         
+        lisaaMuokkausNappi("Näytä kirjan tiedot", this.alanapit, muokkaus);
         lisaaMuokkausNappi("Muokkaa kirjan tietoja", this.alanapit, muokkaus);
         lisaaPoistoNappi("Poista kirja", this.alanapit);
-        lisaaPoistoNappi("Hae kirjoja", this.alanapit);
     }
 
-    public JButton lisaaMuokkausNappi(String teksti, JPanel napit, Nakyma nakyma) {
+    public void lisaaMuokkausNappi(String teksti, JPanel napit, Nakyma nakyma) {
         JButton nappi = new JButton(teksti);
         nappi.addActionListener(new NapinKuuntelija(napit, nakyma, this.kirjalista));
         napit.add(nappi);
-        return nappi;
     }
     
-    public JButton lisaaPoistoNappi(String teksti, JPanel napit) {
+    public void lisaaPoistoNappi(String teksti, JPanel napit) {
         JButton nappi = new JButton(teksti);
         nappi.addActionListener(new KirjanPoistoKuuntelija(this.kirjalista, this.tiedosto, this.tekstikentta, this.model, this.kentansisalto));
         napit.add(nappi);
-        return nappi;
     }
 
     public ArrayList lukuTiedostosta() throws FileNotFoundException, IOException {

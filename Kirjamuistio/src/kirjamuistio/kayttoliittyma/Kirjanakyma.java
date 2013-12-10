@@ -35,18 +35,21 @@ public class Kirjanakyma extends JPanel {
 
         JPanel alanapit = new JPanel();
         this.add(alanapit);
-        
+
         ListausNakyma listaus = new ListausNakyma(this.kirjalista, this.tiedosto, ikkuna, alanapit);
-        
+
         LisaysNakyma lisays = new LisaysNakyma(this.kirjalista, this.tiedosto, ikkuna);
+
+        HakuNakyma haku = new HakuNakyma(this.kirjalista, this.tiedosto, ikkuna, alanapit);
         
         JPanel napit = new JPanel();
         napit.setLayout(new FlowLayout());
         napit.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         this.add(napit);
-        
+
         lisaaNappi("Näytä lista kirjoista", this, napit, listaus);
         lisaaNappi("Lisää uusi kirja", this, napit, lisays);
+        lisaaNappi("Hae kirjoja", this, napit, haku);
 
     }
 

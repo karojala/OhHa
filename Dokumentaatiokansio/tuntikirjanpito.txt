@@ -1,5 +1,8 @@
 ﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
+10.12.2013 tiistai 3 h
+Käyttöliittymän kanssa pelailua
+
 9.12.2013 maanantai 5 h
 Käyttöliittymän jatkoa: kirjojen poiston viimeistely, kirjalistan haku tekstitiedostosta, muutos nappinäkymään, kirjojen muokkaus
 
