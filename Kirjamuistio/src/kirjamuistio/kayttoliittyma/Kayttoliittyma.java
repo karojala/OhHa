@@ -17,10 +17,14 @@ import kirjamuistio.logiikka.Omistetut;
  */
 public class Kayttoliittyma implements Runnable {
 
+    /**
+     * Frame, eli ikkuna, johon käyttöliittymä käynnistyy. 
+     */
     private JFrame frame;
 
     /**
-     * Ajaa graafisen käyttöliittymän
+     * Ajaa graafisen käyttöliittymän. Luo ikkunan, asettaa sen koon, 
+     * luo komponentit sen sisälle, kokoaa sen ja asettaa näkyväksi. 
      */
     @Override
     public void run() {
@@ -42,9 +46,7 @@ public class Kayttoliittyma implements Runnable {
     private void luoKomponentit(Container container) {
         JTabbedPane tabbedPane = new JTabbedPane();
 
-        //Testausta varten väliaikaisesti tässä
         Kirjalista omistetutlista = new Omistetut();
-
         Kirjalista halututlista = new Omistetut();
         
         // Luodaan välilehdet eli tabit omistetuille ja halutuille kirjoille

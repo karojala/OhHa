@@ -4,7 +4,7 @@ Tehtävälista:
 		- Kaikki järjevät loogiset luokat testattu kattavasti (mahd. monta metodia, virhetilanteet, syötteet)
 	- Ohjelma ottaa huomioon:
 		- Vääränmuotoisen syötteen, vääränmuotoiset tekstitiedostot, tiedostojen puuttumisen yms.
-	- Lisäominaisuudet: ISBN, genre, kuvaus, arvostelu
+	(- Lisäominaisuudet: genre, kuvaus, arvostelu)
 	- Koodin tarkastus
 	- JavaDoc tarkastus (kuvattu luokat, attribuutit, metodit+parametrit/palautusarvot)
 	- Luokka- ja sekvenssikaavioiden päivitys

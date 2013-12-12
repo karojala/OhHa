@@ -1,32 +1,29 @@
 package kirjamuistio.logiikka;
 
 /**
- * Kirja-luokka kokoaa kasaan tarvittavat tiedot yhdestä kirja-oliosta
- * Sillä on getterit ja setterit, joiden avulla voidaan sekä hakea kirjan tietooja 
- * ja muokata tietoja
+ * Kirja-luokka kokoaa kasaan tarvittavat tiedot yhdestä Kirja-oliosta
+ * Sillä on getterit ja setterit, joiden avulla voidaan sekä hakea kirjan tietoja 
+ * että muokata tietoja. 
  * @author Karita Ojala
  */
 public class Kirja {
 
+    /**
+     * Kirjan nimi, kirjoittaja, julkaisuvuosi ja ISBN-koodi. 
+     */
     private String nimi;
     private String kirjoittaja;
     private String julkvuosi;
-    private String genre;
     private String isbn;
 
     public Kirja(String nimi, String kirjoittaja, String julkvuosi) {
-        this(nimi, kirjoittaja, julkvuosi, "", "");
+        this(nimi, kirjoittaja, julkvuosi, "");
     }
 
     public Kirja(String nimi, String kirjoittaja, String julkvuosi, String isbn) {
-        this(nimi, kirjoittaja, julkvuosi, isbn, "");
-    }
-
-    public Kirja(String nimi, String kirjoittaja, String julkvuosi, String isbn, String genre) {
         this.nimi = nimi;
         this.kirjoittaja = kirjoittaja;
         this.julkvuosi = julkvuosi;
-        this.genre = genre;
         this.isbn = isbn;
     }
 
@@ -40,10 +37,6 @@ public class Kirja {
 
     public void setJulkaisuvuosi(String julkvuosi) {
         this.julkvuosi = julkvuosi;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
     }
 
     public void setISBN(String isbn) {
@@ -60,10 +53,6 @@ public class Kirja {
 
     public String getJulkaisuvuosi() {
         return this.julkvuosi;
-    }
-
-    public String getGenre() {
-        return this.genre;
     }
 
     public String getISBN() {

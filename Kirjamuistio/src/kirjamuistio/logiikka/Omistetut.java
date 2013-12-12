@@ -5,12 +5,15 @@ import java.util.TreeMap;
 
 /**
  * Omistetut on Kirjalistan erikoistapaus, joka toimii varastona omistetuille
- * kirjoille
+ * kirjoille.
  *
  * @author Karita Ojala
  */
 public class Omistetut implements Kirjalista {
 
+    /**
+     * TreeMap, joka sisältää String-muotoisia avaimia ja Kirja-olioita arvoina. 
+     */
     private TreeMap<String, Kirja> kirjat;
 
     public Omistetut() {

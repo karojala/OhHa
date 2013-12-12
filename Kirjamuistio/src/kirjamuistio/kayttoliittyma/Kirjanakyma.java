@@ -1,7 +1,6 @@
 package kirjamuistio.kayttoliittyma;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.io.File;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -9,8 +8,8 @@ import javax.swing.JPanel;
 import kirjamuistio.logiikka.Kirjalista;
 
 /**
- *
- * @author karojala
+ * Kirjanäkymä on käyttäliittymän näkymistä perustavin. 
+ * @author Karita Ojala
  */
 public class Kirjanakyma extends JPanel {
 
@@ -24,6 +23,10 @@ public class Kirjanakyma extends JPanel {
         teeSisalto();
     }
 
+    /** 
+     * Tekee Kirjanäkymän sisällön. Luo Kirjanäkymän sisälle JPanelit, joihin tulee
+     * erilaista sisältöä riippuen nappien painalluksista yms. Asettaa alkunäkymän. 
+     */
     private void teeSisalto() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -31,12 +34,15 @@ public class Kirjanakyma extends JPanel {
         ikkuna.setLayout(new BorderLayout());
         this.add(ikkuna, BorderLayout.CENTER);
 
+        // Ensimmäinen nappirivistö
         JPanel alanapit = new JPanel();
         this.add(alanapit);
 
+        // Toinen nappirivistö
         JPanel napit = new JPanel();
         this.add(napit);
 
+        // Hakutoiminnolle tarkoitettu alue
         JPanel hakualue = new JPanel();
         this.add(hakualue);
 
@@ -44,18 +50,23 @@ public class Kirjanakyma extends JPanel {
         LisaysNakyma lisays = new LisaysNakyma(this.kirjalista, this.tiedosto, ikkuna);
         HakuNakyma haku = new HakuNakyma(this.kirjalista, ikkuna, hakualue);
 
-        lisaaNappi("Näytä kaikki kirjat", this, napit, listaus);
-        lisaaNappi("Lisää uusi kirja", this, napit, lisays);
+        lisaaNappi("Näytä kaikki kirjat", napit, listaus);
+        lisaaNappi("Lisää uusi kirja", napit, lisays);
         
         listaus.asetaNakyma();
         haku.asetaNakyma();
 
     }
 
-    public JButton lisaaNappi(String teksti, Container container, JPanel napit, Nakyma nakyma) {
+    /**
+     * Tekee JButtoneita. 
+     * @param teksti Napissa näkyvä teksti
+     * @param napit JPanel, johon nappi laitetaan
+     * @param nakyma Nakymä, joka avautuu nappia painamalla
+     */
+    public void lisaaNappi(String teksti, JPanel napit, Nakyma nakyma) {
         JButton nappi = new JButton(teksti);
         nappi.addActionListener(new NapinKuuntelija(nakyma));
         napit.add(nappi);
-        return nappi;
     }
 }

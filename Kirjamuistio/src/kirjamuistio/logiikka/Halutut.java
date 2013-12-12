@@ -5,12 +5,16 @@ import java.util.TreeMap;
 
 /**
  * Halutut on Kirjalistan erikoistapaus, joka toimii varastona halutuille
- * kirjoille Se poikkeaa (tulevaisuudessa) pieniltä osin Omistetut-luokasta
+ * kirjoille. Se poikkeaa pieniltä osin Omistetut-luokasta:
+ * - Julkaisuvuoden syöttäminen kirjalle ei ole pakollista
  *
  * @author Karita Ojala
  */
 public class Halutut implements Kirjalista {
 
+    /**
+     * TreeMap, joka sisältää String-muotoisia avaimia ja Kirja-olioita arvoina. 
+     */
     private TreeMap<String, Kirja> kirjat;
 
     public Halutut() {

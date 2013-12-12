@@ -3,8 +3,9 @@ package kirjamuistio.logiikka;
 import java.util.ArrayList;
 
 /**
- * Kirjalista on rajapinta, joka määrittelee joukon metodeja toteutettavaksi
- * Nämä metodit muodostavat kirjamuistion ydinosuuden
+ * Kirjalista on rajapinta/abstrakti luokka, joka määrittelee joukon metodeja toteutettavaksi
+ * sen implementoiville luokille. 
+ * Nämä metodit muodostavat kirjamuistion ydinosuuden.
  *
  * @author Karita Ojala
  */
@@ -19,6 +20,13 @@ public interface Kirjalista {
      */
     public boolean tarkistaKirjanTiedot(Kirja kirja);
 
+    /**
+     * Kirjan getteri, joka siistii syötteen ja tarkistaa onko Kirjalistassa
+     * vastaavan String-muotoista avainta, ja jos on, palauttaa sen arvon. Jos 
+     * kirjaa ei löydy, tulostaa sen mukaisen syötteen. 
+     * @param nimi Kirjan nimi
+     * @return Kirja tai null
+     */
     public Kirja getKirja(String nimi);
     /**
      * Kirjan lisäysmetodi, joka ensin tarkistaa kirjan tiedot toisen metodin
