@@ -1,9 +1,7 @@
 package kirjamuistio.kayttoliittyma;
 
 import java.awt.BorderLayout;
-import java.awt.ComponentOrientation;
 import java.awt.Container;
-import java.awt.FlowLayout;
 import java.io.File;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -40,8 +38,6 @@ public class Kirjanakyma extends JPanel {
         this.add(napit);
 
         JPanel hakualue = new JPanel();
-        hakualue.setLayout(new FlowLayout());
-        hakualue.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         this.add(hakualue);
 
         ListausNakyma listaus = new ListausNakyma(this.kirjalista, this.tiedosto, ikkuna, alanapit);
@@ -50,7 +46,9 @@ public class Kirjanakyma extends JPanel {
 
         lisaaNappi("Näytä kaikki kirjat", this, napit, listaus);
         lisaaNappi("Lisää uusi kirja", this, napit, lisays);
-        lisaaNappi("Hae kirjoja", this, napit, haku);
+        
+        listaus.asetaNakyma();
+        haku.asetaNakyma();
 
     }
 

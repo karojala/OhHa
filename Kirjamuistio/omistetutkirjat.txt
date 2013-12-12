@@ -1,8 +1,8 @@
-'Brave New World', Aldous Huxley, 1932
-'Broken Homes', Ben Aaronovitch, 2013
-'Dracula', Bram Stoker, 1897
-'Logicomix', Apostolos Doksiadis, 2010
-'Moon Over Soho', Ben Aaronovitch, 2011
-'Solaris', Stanislaw Lem, 1961
-'The Selfish Gene', Richard Dawkins, 1976
-'Whispers Under Ground', Ben Aaronovitch, 2012
+'A Discovery of Witches', Deborah Harkness, 2011, 9780143119678
+'Broken Homes', Ben Aaronovitch, 2013, 
+'City of Dark Magic', Magnus Flyte, 2012, 9780143122685
+'Infernal Devices', K. W. Jeter, 1987, 9780451149343
+'Moon Over Soho', Ben Aaronovitch, 2011, 
+'Shadow of Night', Deborah Harkness, 2012, 9780143123897
+'The Selfish Gene', Richard Dawkins, 1976, 
+'Whispers Under Ground', Ben Aaronovitch, 2012, 

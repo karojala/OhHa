@@ -21,13 +21,15 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
     private JTextField nimi;
     private JTextField kirj;
     private JTextField jvuosi;
+    private JTextField isbn;
 
-    public KirjanLisaajaKuuntelija(Kirjalista kirjalista, File tiedosto, JTextField nimi, JTextField kirj, JTextField jvuosi) {
+    public KirjanLisaajaKuuntelija(Kirjalista kirjalista, File tiedosto, JTextField nimi, JTextField kirj, JTextField jvuosi, JTextField isbn) {
         this.kirjalista = kirjalista;
         this.tiedosto = tiedosto;
         this.nimi = nimi;
         this.kirj = kirj;
         this.jvuosi = jvuosi;
+        this.isbn = isbn;
     }
 
     /**
@@ -38,8 +40,9 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String knimi = this.nimi.getText();
         String kkirj = this.kirj.getText();
-        int vuosi = Integer.parseInt(this.jvuosi.getText());
-        Kirja kirja = new Kirja(knimi, kkirj, vuosi);
+        String vuosi = this.jvuosi.getText();
+        String kisbn = this.isbn.getText();
+        Kirja kirja = new Kirja(knimi, kkirj, vuosi, kisbn);
 
         this.kirjalista.lisaaKirja(kirja);
 
@@ -52,6 +55,7 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
         this.nimi.setText("");
         this.kirj.setText("");
         this.jvuosi.setText("");
+        this.isbn.setText("");
     }
 
     public void kirjoitusTiedostoon() throws FileNotFoundException, IOException {

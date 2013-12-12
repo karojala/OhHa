@@ -56,8 +56,9 @@ public class ListausNakyma implements Nakyma {
                 nimi = nimi.replace("'", "").trim();
                 String kirj = osat[1].trim();
                 String vuosi = osat[2].trim();
-                int jvuosi = Integer.parseInt(vuosi);
-                Kirja kirja = new Kirja(nimi, kirj, jvuosi);
+                String isbn = osat[3].trim();
+
+                Kirja kirja = new Kirja(nimi, kirj, vuosi, isbn);
                 this.kirjalista.lisaaKirja(kirja);
             }
         } catch (IOException e) {
@@ -69,7 +70,7 @@ public class ListausNakyma implements Nakyma {
         this.model.clear();
 
         for (Kirja kirja : this.kirjalista.kirjalista()) {
-            this.model.addElement(kirja.toString());
+            this.model.addElement(kirja.lyhytString());
         }
     }
 
@@ -89,21 +90,19 @@ public class ListausNakyma implements Nakyma {
         this.alanapit.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
         MuokkausNakyma muokkaus = new MuokkausNakyma(this.kirjalista, this.tiedosto, this.ikkuna, this.tekstikentta, this.model);
-        
-        lisaaMuokkausNappi("Näytä kirjan tiedot", this.alanapit, muokkaus);
-        lisaaMuokkausNappi("Muokkaa kirjan tietoja", this.alanapit, muokkaus);
+        TietoNakyma tieto = new TietoNakyma(this.kirjalista, this.ikkuna, this.tekstikentta);
+
+        lisaaPerusNappi("Näytä kirjan tiedot", this.alanapit, tieto);
+        lisaaPerusNappi("Muokkaa kirjan tietoja", this.alanapit, muokkaus);
         lisaaPoistoNappi("Poista kirja", this.alanapit);
-        
-        this.alanapit.revalidate();
-        this.alanapit.repaint();
     }
 
-    public void lisaaMuokkausNappi(String teksti, JPanel napit, Nakyma nakyma) {
+    public void lisaaPerusNappi(String teksti, JPanel napit, Nakyma nakyma) {
         JButton nappi = new JButton(teksti);
         nappi.addActionListener(new NapinKuuntelija(nakyma));
         napit.add(nappi);
     }
-    
+
     public void lisaaPoistoNappi(String teksti, JPanel napit) {
         JButton nappi = new JButton(teksti);
         nappi.addActionListener(new KirjanPoistoKuuntelija(this.kirjalista, this.tiedosto, this.tekstikentta, this.model));

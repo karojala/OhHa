@@ -62,7 +62,7 @@ public interface Kirjalista {
      * @param nimi Haettava julkaisuvuosi
      * @return Julkaisuvuoden avulla löytyneet kirjat
      */
-    public String julkaisuvuosiHaku(int julkvuosi);
+    public String julkaisuvuosiHaku(String julkvuosi);
 
     /**
      * Tarkastaa, onko kirja olemassa kirjalistassa.

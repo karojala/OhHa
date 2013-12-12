@@ -1,7 +1,7 @@
 ﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
-12.12.2013 torstai 3 h
-Hakutoiminnon toteutus käyttöliittymään
+12.12.2013 torstai 6 h
+Hakutoiminnon toteutusta käyttöliittymään, isbn lisäys kirjan tietoihin käyttöliittymässä
 
 10.12.2013 tiistai 3 h
 Käyttöliittymän kanssa pelailua

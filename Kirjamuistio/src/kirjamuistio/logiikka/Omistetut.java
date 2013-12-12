@@ -31,7 +31,9 @@ public class Omistetut implements Kirjalista {
             ok = false;
         }
 
-        if (kirja.getJulkaisuvuosi() <= 0 || kirja.getJulkaisuvuosi() > 2100) {
+        if (kirja.getJulkaisuvuosi().isEmpty()) {
+            System.out.println("Kirjan julkaisuvuosi puuttuu.");
+        } else if (Integer.parseInt(kirja.getJulkaisuvuosi()) == 0 || Integer.parseInt(kirja.getJulkaisuvuosi()) > 2015) {
             System.out.println("Kirjan julkaisuvuosi on virheellinen.");
             ok = false;
         }
@@ -118,17 +120,17 @@ public class Omistetut implements Kirjalista {
     }
 
     @Override
-    public String julkaisuvuosiHaku(int julkvuosi) {
+    public String julkaisuvuosiHaku(String julkvuosi) {
         String kirjatMerkkijonona = "";
 
         for (Kirja kirja : this.kirjat.values()) {
-            if (kirja.getJulkaisuvuosi() == julkvuosi) {
+            if (kirja.getJulkaisuvuosi().contentEquals(julkvuosi)) {
                 kirjatMerkkijonona += kirja + "\n";
             }
         }
 
-        if (julkvuosi == 0) {
-            return "Julkaisuvuosi ei voi olla 0";
+        if (julkvuosi.isEmpty()) {
+            return "Julkaisuvuosihakua ei voi tehdä tyhjällä kentällä";
         } else if (kirjatMerkkijonona.isEmpty()) {
             return "Hakemallasi julkaisuvuodella ei löytynyt yhtäkään kirjaa";
         }

@@ -10,19 +10,19 @@ public class Kirja {
 
     private String nimi;
     private String kirjoittaja;
-    private int julkvuosi;
+    private String julkvuosi;
     private String genre;
     private String isbn;
 
-    public Kirja(String nimi, String kirjoittaja, int julkvuosi) {
+    public Kirja(String nimi, String kirjoittaja, String julkvuosi) {
         this(nimi, kirjoittaja, julkvuosi, "", "");
     }
 
-    public Kirja(String nimi, String kirjoittaja, int julkvuosi, String genre) {
-        this(nimi, kirjoittaja, julkvuosi, genre, "");
+    public Kirja(String nimi, String kirjoittaja, String julkvuosi, String isbn) {
+        this(nimi, kirjoittaja, julkvuosi, isbn, "");
     }
 
-    public Kirja(String nimi, String kirjoittaja, int julkvuosi, String genre, String isbn) {
+    public Kirja(String nimi, String kirjoittaja, String julkvuosi, String isbn, String genre) {
         this.nimi = nimi;
         this.kirjoittaja = kirjoittaja;
         this.julkvuosi = julkvuosi;
@@ -38,7 +38,7 @@ public class Kirja {
         this.kirjoittaja = kirjoittaja;
     }
 
-    public void setJulkaisuvuosi(int julkvuosi) {
+    public void setJulkaisuvuosi(String julkvuosi) {
         this.julkvuosi = julkvuosi;
     }
 
@@ -58,7 +58,7 @@ public class Kirja {
         return this.kirjoittaja;
     }
 
-    public int getJulkaisuvuosi() {
+    public String getJulkaisuvuosi() {
         return this.julkvuosi;
     }
 
@@ -70,9 +70,12 @@ public class Kirja {
         return this.isbn;
     }
 
+    public String lyhytString() {
+        return "'" + this.nimi + "'" + ", " + this.kirjoittaja;
+    }
+    
     @Override
     public String toString() {
-        return "'" + this.nimi + "'" + ", " + this.kirjoittaja + ", " + this.julkvuosi;
-        // + ", " + this.genre + ", " + "ISBN " + this.isbn
+        return "'" + this.nimi + "'" + ", " + this.kirjoittaja + ", " + this.julkvuosi + ", " + this.isbn;
     }
 }

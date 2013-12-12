@@ -1,7 +1,8 @@
 package kirjamuistio.logiikka;
 
-import org.junit.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * KirjaTest-luokka testaa Kirja-luokan metodien toimintaa
@@ -14,7 +15,7 @@ public class KirjaTest {
 
     @Before
     public void setUp() {
-        kirja = new Kirja("The Selfish Gene", "Richard Dawkins", 1976);
+        kirja = new Kirja("The Selfish Gene", "Richard Dawkins", "1976");
     }
     
     @Test

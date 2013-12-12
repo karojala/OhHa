@@ -1,7 +1,8 @@
 package kirjamuistio.logiikka;
 
-import org.junit.*;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * KirjalistaTest-luokka testaa Kirjalista-luokan metodien toimintaa
@@ -16,13 +17,13 @@ public class KirjalistaTest {
     @Before
     public void setUp() {
         kirjalista = new Omistetut();
-        kirja = new Kirja("The Selfish Gene", "Richard Dawkins", 1976);
+        kirja = new Kirja("The Selfish Gene", "Richard Dawkins", "1976");
         kirjalista.lisaaKirja(kirja);
     }
 
     @Test
     public void kirjanTietojenTarkistusOikein() {
-        Kirja kirja2 = new Kirja("", "", 0);
+        Kirja kirja2 = new Kirja("", "", "0");
         assertTrue(kirjalista.tarkistaKirjanTiedot(kirja));
         assertFalse(kirjalista.tarkistaKirjanTiedot(kirja2));
     }
@@ -82,13 +83,13 @@ public class KirjalistaTest {
 
     @Test
     public void julkvuosiHakuNollalla() {
-        String tulos = kirjalista.julkaisuvuosiHaku(0);
+        String tulos = kirjalista.julkaisuvuosiHaku("0");
         assertEquals("Julkaisuvuosi ei voi olla 0", tulos);
     }
 
     @Test
     public void julkvuosiHakuEiLoydy() {
-        String tulos = kirjalista.julkaisuvuosiHaku(1950);
+        String tulos = kirjalista.julkaisuvuosiHaku("1950");
         assertEquals("Hakemallasi julkaisuvuodella ei löytynyt yhtäkään kirjaa", tulos);
     }
 }

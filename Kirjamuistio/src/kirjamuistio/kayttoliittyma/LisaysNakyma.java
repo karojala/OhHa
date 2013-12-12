@@ -20,6 +20,7 @@ public class LisaysNakyma implements Nakyma {
     private JTextField nimi;
     private JTextField kirjoittaja;
     private JTextField julkvuosi;
+    private JTextField isbn;
 
     public LisaysNakyma(Kirjalista kirjalista, File tiedosto, JPanel ikkuna) {
         this.kirjalista = kirjalista;
@@ -30,6 +31,7 @@ public class LisaysNakyma implements Nakyma {
         this.nimi = new JTextField(20);
         this.kirjoittaja = new JTextField(20);
         this.julkvuosi = new JTextField(20);
+        this.isbn = new JTextField(20);
     }
 
     @Override
@@ -40,6 +42,7 @@ public class LisaysNakyma implements Nakyma {
         lisaaKomponentti("Kirjan nimi: ", this.nimi, 5);
         lisaaKomponentti("Kirjan kirjoittaja: ", this.kirjoittaja, 35);
         lisaaKomponentti("Kirjan julkaisuvuosi: ", this.julkvuosi, 65);
+        lisaaKomponentti("Kirjan ISBN: ", this.isbn, 95);
         lisaaNappi();
 
         this.ikkuna.revalidate();
@@ -55,10 +58,10 @@ public class LisaysNakyma implements Nakyma {
     
     public void lisaaNappi() {
         JButton nappi = new JButton("Valmis");
-        nappi.addActionListener(new KirjanLisaajaKuuntelija(this.kirjalista, this.tiedosto, this.nimi, this.kirjoittaja, this.julkvuosi));
+        nappi.addActionListener(new KirjanLisaajaKuuntelija(this.kirjalista, this.tiedosto, this.nimi, this.kirjoittaja, this.julkvuosi, this.isbn));
         this.ikkuna.add(nappi);
         this.layout.putConstraint(SpringLayout.WEST, nappi, 5, SpringLayout.WEST, this.ikkuna);
-        this.layout.putConstraint(SpringLayout.NORTH, nappi, 105, SpringLayout.NORTH, this.ikkuna);
+        this.layout.putConstraint(SpringLayout.NORTH, nappi, 135, SpringLayout.NORTH, this.ikkuna);
     }
     
     public void asetaRajat(SpringLayout layout, JComponent component, JComponent component2, int northraja) {
