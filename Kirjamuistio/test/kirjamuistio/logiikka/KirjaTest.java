@@ -19,6 +19,11 @@ public class KirjaTest {
     }
     
     @Test
+    public void lyhytStringTulostaaOikein() {
+        assertEquals("'The Selfish Gene', Richard Dawkins", kirja.lyhytString());
+    }
+    
+    @Test
     public void toStringTulostaaOikein() {
         assertEquals("'The Selfish Gene', Richard Dawkins, 1976", kirja.toString());
     }

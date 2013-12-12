@@ -23,11 +23,44 @@ public class KirjalistaTest {
 
     @Test
     public void kirjanTietojenTarkistusOikein() {
-        Kirja kirja2 = new Kirja("", "", "0");
         assertTrue(kirjalista.tarkistaKirjanTiedot(kirja));
+    }
+
+    @Test
+    public void kirjanNimenTarkistusVaarin() {
+        Kirja kirja2 = new Kirja("", "Ben Aaronovitch", "2013");
         assertFalse(kirjalista.tarkistaKirjanTiedot(kirja2));
     }
 
+    @Test
+    public void kirjanKirjoittajanTarkistusVaarin() {
+        Kirja kirja2 = new Kirja("Broken Homes", "", "2013");
+        assertFalse(kirjalista.tarkistaKirjanTiedot(kirja2));
+    }
+
+    @Test
+    public void kirjanJulkvuodenTarkistusVaarin1() {
+        Kirja kirja2 = new Kirja("Broken Homes", "Ben Aaronovitch", "");
+        assertFalse(kirjalista.tarkistaKirjanTiedot(kirja2));
+    }
+
+    @Test
+    public void kirjanJulkvuodenTarkistusVaarin2() {
+        Kirja kirja2 = new Kirja("Broken Homes", "Ben Aaronovitch", "0");
+        assertFalse(kirjalista.tarkistaKirjanTiedot(kirja2));
+    }
+
+    @Test
+    public void kirjanJulkvuodenTarkistusVaarin3() {
+        Kirja kirja2 = new Kirja("Broken Homes", "Ben Aaronovitch", "2100");
+        assertFalse(kirjalista.tarkistaKirjanTiedot(kirja2));
+    }
+
+    @Test
+    public void getKirjaToimii() {
+        assertEquals(kirjalista.getKirja("The Selfish Gene"), kirja);
+    }
+    
     @Test
     public void kirjanLisaaminenOnnistuu() {
         assertTrue(kirjalista.onkoKirja(kirja));
@@ -82,9 +115,21 @@ public class KirjalistaTest {
     }
 
     @Test
+    public void julkvuosiHakuTyhjallaKentalla() {
+        String tulos = kirjalista.julkaisuvuosiHaku("");
+        assertEquals("Julkaisuvuosihakua ei voi tehdä tyhjällä kentällä", tulos);
+    }
+
+    @Test
     public void julkvuosiHakuNollalla() {
         String tulos = kirjalista.julkaisuvuosiHaku("0");
-        assertEquals("Julkaisuvuosi ei voi olla 0", tulos);
+        assertEquals("Hakemallasi julkaisuvuodella ei löytynyt yhtäkään kirjaa", tulos);
+    }
+
+    @Test
+    public void julkvuosiHakuTulevaisuudessa() {
+        String tulos = kirjalista.julkaisuvuosiHaku("2100");
+        assertEquals("Hakemallasi julkaisuvuodella ei löytynyt yhtäkään kirjaa", tulos);
     }
 
     @Test

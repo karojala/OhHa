@@ -76,6 +76,11 @@ public class Kirja {
     
     @Override
     public String toString() {
+        if (getJulkaisuvuosi().isEmpty()) {
+            return "'" + this.nimi + "'" + ", " + this.kirjoittaja;
+        } else if (getISBN().isEmpty()) {
+            return "'" + this.nimi + "'" + ", " + this.kirjoittaja + ", " + this.julkvuosi;
+        }
         return "'" + this.nimi + "'" + ", " + this.kirjoittaja + ", " + this.julkvuosi + ", " + this.isbn;
     }
 }

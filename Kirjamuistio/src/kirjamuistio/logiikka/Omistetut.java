@@ -33,6 +33,7 @@ public class Omistetut implements Kirjalista {
 
         if (kirja.getJulkaisuvuosi().isEmpty()) {
             System.out.println("Kirjan julkaisuvuosi puuttuu.");
+            ok = false;
         } else if (Integer.parseInt(kirja.getJulkaisuvuosi()) == 0 || Integer.parseInt(kirja.getJulkaisuvuosi()) > 2015) {
             System.out.println("Kirjan julkaisuvuosi on virheellinen.");
             ok = false;
