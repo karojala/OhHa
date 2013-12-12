@@ -1,8 +1,8 @@
-'Whispers Under Ground', Ben Aaronovitch, 2012
 'Brave New World', Aldous Huxley, 1932
-'The Selfish Gene', Richard Dawkins, 1976
 'Broken Homes', Ben Aaronovitch, 2013
 'Dracula', Bram Stoker, 1897
-'Solaris', Stanislaw Lem, 1961
 'Logicomix', Apostolos Doksiadis, 2010
 'Moon Over Soho', Ben Aaronovitch, 2011
+'Solaris', Stanislaw Lem, 1961
+'The Selfish Gene', Richard Dawkins, 1976
+'Whispers Under Ground', Ben Aaronovitch, 2012

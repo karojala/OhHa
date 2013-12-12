@@ -1,11 +1,11 @@
 package kirjamuistio.kayttoliittyma;
 
-import kirjamuistio.logiikka.Kirjalista;
-import kirjamuistio.logiikka.Kirja;
-
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
-import javax.swing.*;
+import javax.swing.JTextField;
+import kirjamuistio.logiikka.Kirja;
+import kirjamuistio.logiikka.Kirjalista;
 
 /**
  * KirjanLisaajaKuuntelija on tapahtumakuuntelija, jonka tarkoituksena on
@@ -45,8 +45,8 @@ public class KirjanLisaajaKuuntelija implements ActionListener {
 
         try {
             kirjoitusTiedostoon();
-        } catch (IOException error) {
-            System.err.println("Problem writing to the file");
+        } catch (IOException ex) {
+            System.err.println("Ongelma kirjoittaessa tiedostoon");
         }
 
         this.nimi.setText("");

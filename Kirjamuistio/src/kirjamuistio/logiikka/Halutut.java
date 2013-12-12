@@ -1,7 +1,7 @@
 package kirjamuistio.logiikka;
 
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 /**
  * Halutut on Kirjalistan erikoistapaus, joka toimii varastona halutuille
@@ -11,10 +11,10 @@ import java.util.ArrayList;
  */
 public class Halutut implements Kirjalista {
 
-    private HashMap<String, Kirja> kirjat;
+    private TreeMap<String, Kirja> kirjat;
 
     public Halutut() {
-        this.kirjat = new HashMap<String, Kirja>();
+        this.kirjat = new TreeMap<>();
     }
 
     @Override
@@ -153,7 +153,7 @@ public class Halutut implements Kirjalista {
 
     @Override
     public ArrayList<Kirja> kirjalista() {
-        return new ArrayList<Kirja>(this.kirjat.values());
+        return new ArrayList<>(this.kirjat.values());
     }
 
     @Override

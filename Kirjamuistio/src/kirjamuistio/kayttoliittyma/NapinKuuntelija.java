@@ -3,29 +3,22 @@ package kirjamuistio.kayttoliittyma;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JPanel;
-import kirjamuistio.logiikka.Kirjalista;
         
 /**
- * NapinKuuntelija on tapahtumakuuntelija, jonka tarkoituksena on toteuttaa
- * napinpainallusominaisuus, jonka tuloksena käyttöliittymän ikkunaan ilmestyy
- * lista kirjoista tai näkymä, josta voi lisätä kirjan kirjalistaan. 
+ * NapinKuuntelija on tapahtumakuuntelija, joka kuuntelee nappia, jota painammalla
+ * käyttöliittymän ikkunaan asetetaan näkymä. 
  * @author Karita Ojala
  */
 public class NapinKuuntelija implements ActionListener {
     
     private Nakyma nakyma;
-    private Kirjalista kirjalista;
-    private JPanel ikkuna;
     
-    public NapinKuuntelija(JPanel ikkuna, Nakyma nakyma, Kirjalista kirjalista) {
+    public NapinKuuntelija(Nakyma nakyma) {
         this.nakyma = nakyma;
-        this.kirjalista = kirjalista;
-        this.ikkuna = ikkuna;
     }
     
     /**
-     * Napin painalluksen jälkeen suorittaa jonkin toiminnon. 
+     * Napin painalluksen jälkeen asettaa näkymän.
      * @param e Tapahtuma
      */
     @Override

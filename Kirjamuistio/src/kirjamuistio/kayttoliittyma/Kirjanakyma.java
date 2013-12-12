@@ -46,9 +46,9 @@ public class Kirjanakyma extends JPanel {
 
         ListausNakyma listaus = new ListausNakyma(this.kirjalista, this.tiedosto, ikkuna, alanapit);
         LisaysNakyma lisays = new LisaysNakyma(this.kirjalista, this.tiedosto, ikkuna);
-        HakuNakyma haku = new HakuNakyma(this.kirjalista, this.tiedosto, ikkuna, hakualue);
+        HakuNakyma haku = new HakuNakyma(this.kirjalista, ikkuna, hakualue);
 
-        lisaaNappi("Näytä lista kirjoista", this, napit, listaus);
+        lisaaNappi("Näytä kaikki kirjat", this, napit, listaus);
         lisaaNappi("Lisää uusi kirja", this, napit, lisays);
         lisaaNappi("Hae kirjoja", this, napit, haku);
 
@@ -56,7 +56,7 @@ public class Kirjanakyma extends JPanel {
 
     public JButton lisaaNappi(String teksti, Container container, JPanel napit, Nakyma nakyma) {
         JButton nappi = new JButton(teksti);
-        nappi.addActionListener(new NapinKuuntelija(napit, nakyma, this.kirjalista));
+        nappi.addActionListener(new NapinKuuntelija(nakyma));
         napit.add(nappi);
         return nappi;
     }

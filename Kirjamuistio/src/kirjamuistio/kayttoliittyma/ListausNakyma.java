@@ -63,7 +63,7 @@ public class ListausNakyma implements Nakyma {
                 this.kirjalista.lisaaKirja(kirja);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Ongelma lukiessa tiedostosta");
         }
     }
 
@@ -103,7 +103,7 @@ public class ListausNakyma implements Nakyma {
 
     public void lisaaMuokkausNappi(String teksti, JPanel napit, Nakyma nakyma) {
         JButton nappi = new JButton(teksti);
-        nappi.addActionListener(new NapinKuuntelija(napit, nakyma, this.kirjalista));
+        nappi.addActionListener(new NapinKuuntelija(nakyma));
         napit.add(nappi);
     }
     

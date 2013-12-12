@@ -1,7 +1,7 @@
 package kirjamuistio.logiikka;
 
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 /**
  * Omistetut on Kirjalistan erikoistapaus, joka toimii varastona omistetuille
@@ -11,10 +11,10 @@ import java.util.ArrayList;
  */
 public class Omistetut implements Kirjalista {
 
-    private HashMap<String, Kirja> kirjat;
+    private TreeMap<String, Kirja> kirjat;
 
     public Omistetut() {
-        this.kirjat = new HashMap<>();
+        this.kirjat = new TreeMap<>();
     }
 
     @Override
@@ -152,7 +152,7 @@ public class Omistetut implements Kirjalista {
 
     @Override
     public ArrayList<Kirja> kirjalista() {
-        return new ArrayList<Kirja>(this.kirjat.values());
+        return new ArrayList<>(this.kirjat.values());
     }
 
     @Override

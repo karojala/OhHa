@@ -1,7 +1,6 @@
 package kirjamuistio.kayttoliittyma;
 
-import java.awt.*;
-import java.io.*;
+import java.io.File;
 import javax.swing.*;
 import kirjamuistio.logiikka.Kirjalista;
 
