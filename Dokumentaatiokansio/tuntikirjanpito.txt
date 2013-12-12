@@ -1,6 +1,6 @@
 ﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
-12.12.2013 torstai 15:00
+12.12.2013 torstai 3 h
 Hakutoiminnon toteutus käyttöliittymään
 
 10.12.2013 tiistai 3 h

@@ -25,7 +25,6 @@ public class ListausNakyma implements Nakyma {
     private Kirjalista kirjalista;
     private File tiedosto;
     private JList tekstikentta;
-    private ArrayList kentansisalto;
     DefaultListModel model;
     BufferedReader reader;
     private JScrollPane scroll;
@@ -39,7 +38,6 @@ public class ListausNakyma implements Nakyma {
         this.alanapit = alanapit;
         teeLista();
         this.scroll = new JScrollPane(this.tekstikentta);
-        this.kentansisalto = new ArrayList();
     }
 
     private void teeLista() {
@@ -72,7 +70,6 @@ public class ListausNakyma implements Nakyma {
 
         for (Kirja kirja : this.kirjalista.kirjalista()) {
             this.model.addElement(kirja.toString());
-            this.kentansisalto.add(kirja.getNimi());
         }
     }
 
@@ -91,7 +88,7 @@ public class ListausNakyma implements Nakyma {
         this.alanapit.setLayout(new FlowLayout());
         this.alanapit.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
-        MuokkausNakyma muokkaus = new MuokkausNakyma(this.kirjalista, this.tiedosto, this.ikkuna, this.tekstikentta, this.model, this.kentansisalto);
+        MuokkausNakyma muokkaus = new MuokkausNakyma(this.kirjalista, this.tiedosto, this.ikkuna, this.tekstikentta, this.model);
         
         lisaaMuokkausNappi("Näytä kirjan tiedot", this.alanapit, muokkaus);
         lisaaMuokkausNappi("Muokkaa kirjan tietoja", this.alanapit, muokkaus);
@@ -109,7 +106,7 @@ public class ListausNakyma implements Nakyma {
     
     public void lisaaPoistoNappi(String teksti, JPanel napit) {
         JButton nappi = new JButton(teksti);
-        nappi.addActionListener(new KirjanPoistoKuuntelija(this.kirjalista, this.tiedosto, this.tekstikentta, this.model, this.kentansisalto));
+        nappi.addActionListener(new KirjanPoistoKuuntelija(this.kirjalista, this.tiedosto, this.tekstikentta, this.model));
         napit.add(nappi);
     }
 

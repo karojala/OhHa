@@ -1,5 +1,4 @@
 Tehtävälista:
-	- Kirjat käyttöliittymän listassa aakkosjärjestyksessä
 	- Hakuominaisuus käyttöliittymään
 	- Testien laajentaminen
 		- Kaikki järjevät loogiset luokat testattu kattavasti (mahd. monta metodia, virhetilanteet, syötteet)
