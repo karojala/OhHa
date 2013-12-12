@@ -96,6 +96,9 @@ public class ListausNakyma implements Nakyma {
         lisaaMuokkausNappi("Näytä kirjan tiedot", this.alanapit, muokkaus);
         lisaaMuokkausNappi("Muokkaa kirjan tietoja", this.alanapit, muokkaus);
         lisaaPoistoNappi("Poista kirja", this.alanapit);
+        
+        this.alanapit.revalidate();
+        this.alanapit.repaint();
     }
 
     public void lisaaMuokkausNappi(String teksti, JPanel napit, Nakyma nakyma) {
