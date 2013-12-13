@@ -72,7 +72,7 @@ public class Omistetut implements Kirjalista {
             kirjat.put(nimisiisti, kirja);
         }
     }
-
+    
     @Override
     public void poistaKirja(String nimi) {
         String nimisiisti = siistiMerkkijono(nimi);

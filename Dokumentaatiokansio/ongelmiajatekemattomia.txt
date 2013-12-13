@@ -1,15 +1,11 @@
 Tehtävälista:
-	- Hakuominaisuus käyttöliittymään
+	- Hakuominaisuuden hiomista (tuottaa silti joskus erroria yhdistettynä muokkaus/poistotoimintoihin)
 	- Testien laajentaminen
 		- Kaikki järjevät loogiset luokat testattu kattavasti (mahd. monta metodia, virhetilanteet, syötteet)
 	- Ohjelma ottaa huomioon:
 		- Vääränmuotoisen syötteen, vääränmuotoiset tekstitiedostot, tiedostojen puuttumisen yms.
-	(- Lisäominaisuudet: genre, kuvaus, arvostelu)
-	- Koodin tarkastus
-	- JavaDoc tarkastus (kuvattu luokat, attribuutit, metodit+parametrit/palautusarvot)
-	- Luokka- ja sekvenssikaavioiden päivitys
+	- Koodin tarkastus (muutosten osalta)
 	- Aihemäärittelyn ja ohjelman rakenteen kuvauksen päivitys
 	- Käyttöohjeiden kirjoittaminen
-	- (Testausdokumentaation kirjoittaminen)
 	- Tuntikirjanpidon viimeinen päivitys
 	- .jar-tiedoston luominen (huom. teksitiedostojen sijainti, testaus useammalla koneella) projektiokansion "dist"-kansioon

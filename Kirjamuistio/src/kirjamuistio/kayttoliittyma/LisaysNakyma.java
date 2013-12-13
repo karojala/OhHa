@@ -46,6 +46,10 @@ public class LisaysNakyma implements Nakyma {
      * Tekstikenttä, johon kirjoitetaan kirjan ISBN-koodi.
      */
     private JTextField isbn;
+    /**
+     * Tekstialue, johon ilmestyy palaute, jos jokin kenttä ei ole hyväksyttävä.
+     */
+    private JTextArea palaute;
 
     public LisaysNakyma(Kirjalista kirjalista, File tiedosto, JPanel ikkuna) {
         this.kirjalista = kirjalista;
@@ -57,10 +61,12 @@ public class LisaysNakyma implements Nakyma {
         this.kirjoittaja = new JTextField(20);
         this.julkvuosi = new JTextField(20);
         this.isbn = new JTextField(20);
+
+        this.palaute = new JTextArea(5, 30);
     }
 
     /**
-     * Tyhjentää ikkunan ja lisää siihen näkymän komponentit. 
+     * Tyhjentää ikkunan ja lisää siihen näkymän komponentit.
      */
     @Override
     public void asetaNakyma() {
@@ -72,17 +78,33 @@ public class LisaysNakyma implements Nakyma {
         lisaaKomponentti("Kirjan julkaisuvuosi: ", this.julkvuosi, 65);
         lisaaKomponentti("Kirjan ISBN: ", this.isbn, 95);
         lisaaNappi();
+        lisaaPalauteAlue(175);
 
         this.ikkuna.revalidate();
         this.ikkuna.repaint();
     }
 
     /**
+     * Lisää palautetekstikentän ikkunaan ja asettaa sille rajoitteet.
+     *
+     * @param northraja Komponenttien pohjoinen etäisyys seuraavaan
+     * komponenttiin
+     */
+    public void lisaaPalauteAlue(int northraja) {
+        this.ikkuna.add(this.palaute);
+        this.palaute.setEditable(false);
+        this.layout.putConstraint(SpringLayout.WEST, palaute, 5, SpringLayout.WEST, this.ikkuna);
+        this.layout.putConstraint(SpringLayout.NORTH, palaute, northraja, SpringLayout.NORTH, this.ikkuna);
+    }
+
+    /**
      * Luo JLabelin, lisää sen ja siihen liittyvän tekstikentän ikkunaan ja
-     * asettaa ulkoasun vaatimat rajat niille. 
+     * asettaa ulkoasun vaatimat rajat niille.
+     *
      * @param teksti JLabeliin tuleva teksti
      * @param kentta JTextField, johon kirjoitetaan tieto
-     * @param northraja Komponenttien pohjoinen etäisyys seuraavaan komponenttiin
+     * @param northraja Komponenttien pohjoinen etäisyys seuraavaan
+     * komponenttiin
      */
     public void lisaaKomponentti(String teksti, JTextField kentta, int northraja) {
         JLabel label = new JLabel(teksti);
@@ -93,22 +115,24 @@ public class LisaysNakyma implements Nakyma {
 
     /**
      * Luo ja lisää "Valmis"-napin, jota painamalla kirjan tiedoista luodaan
-     * Kirja-olio Kirjalistaan. 
+     * Kirja-olio Kirjalistaan.
      */
     public void lisaaNappi() {
         JButton nappi = new JButton("Valmis");
-        nappi.addActionListener(new KirjanLisaajaKuuntelija(this.kirjalista, this.tiedosto, this.nimi, this.kirjoittaja, this.julkvuosi, this.isbn));
+        nappi.addActionListener(new KirjanLisaajaKuuntelija(this.kirjalista, this.tiedosto, this.nimi, this.kirjoittaja, this.julkvuosi, this.isbn, this.palaute));
         this.ikkuna.add(nappi);
         this.layout.putConstraint(SpringLayout.WEST, nappi, 5, SpringLayout.WEST, this.ikkuna);
         this.layout.putConstraint(SpringLayout.NORTH, nappi, 135, SpringLayout.NORTH, this.ikkuna);
     }
 
     /**
-     * Komponenttien SpringLayout rajat (etäisyydet toisiinsa eri suunnissa). 
+     * Komponenttien SpringLayout rajat (etäisyydet toisiinsa eri suunnissa).
+     *
      * @param layout Näkymän SpringLayout
      * @param component Komponentti 1 (label)
      * @param component2 Komponentti 2 (tekstikenttä)
-     * @param northraja Komponenttien pohjoinen etäisyys seuraavaan komponenttiin
+     * @param northraja Komponenttien pohjoinen etäisyys seuraavaan
+     * komponenttiin
      */
     public void asetaRajat(SpringLayout layout, JComponent component, JComponent component2, int northraja) {
         layout.putConstraint(SpringLayout.WEST, component, 5, SpringLayout.WEST, this.ikkuna);

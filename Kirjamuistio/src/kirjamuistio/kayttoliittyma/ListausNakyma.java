@@ -23,11 +23,12 @@ import kirjamuistio.logiikka.Kirjalista;
 public class ListausNakyma implements Nakyma {
 
     /**
-     * Kirjalista, joko Omistetut tai Halutut riippuen välilehdestä. 
+     * Kirjalista, joko Omistetut tai Halutut riippuen välilehdestä.
      */
     private Kirjalista kirjalista;
     /**
-     * Tekstitiedosto, johon kirjalista tallennetaan (eri riippuen kirjalistasta).
+     * Tekstitiedosto, johon kirjalista tallennetaan (eri riippuen
+     * kirjalistasta).
      */
     private File tiedosto;
     /**
@@ -54,12 +55,17 @@ public class ListausNakyma implements Nakyma {
      * JPanel toimintonapeille.
      */
     private JPanel alanapit;
+    /**
+     * JPanel hakutoiminnolle.
+     */
+    private JPanel hakualue;
 
-    public ListausNakyma(Kirjalista kirjalista, File tiedosto, JPanel ikkuna, JPanel alanapit) {
+    public ListausNakyma(Kirjalista kirjalista, File tiedosto, JPanel ikkuna, JPanel alanapit, JPanel hakualue) {
         this.kirjalista = kirjalista;
         this.tiedosto = tiedosto;
         this.ikkuna = ikkuna;
         this.alanapit = alanapit;
+        this.hakualue = hakualue;
         teeLista();
         this.scroll = new JScrollPane(this.tekstikentta);
     }
@@ -88,7 +94,8 @@ public class ListausNakyma implements Nakyma {
 
     /**
      * Jakaa rivin sisältämän tiedon osiin, poistaa turhat osat ja luo tiedoista
-     * Kirja-olion, jonka lisää Kirjalistaan. 
+     * Kirja-olion, jonka lisää Kirjalistaan.
+     *
      * @param rivi
      */
     public void kirjanLuonti(Object rivi) {
@@ -97,16 +104,32 @@ public class ListausNakyma implements Nakyma {
         String nimi = osat[0];
         nimi = nimi.replace("'", "").trim();
         String kirj = osat[1].trim();
-        String vuosi = osat[2].trim();
-        String isbn = osat[3].trim();
+        
+        String vuosi = null;
+        if (osat.length > 2) {
+            vuosi = osat[2].trim();
+        }
+        
+        String isbn = null;
+        if (osat.length > 3) {
+            isbn = osat[3].trim();
+        } 
 
-        Kirja kirja = new Kirja(nimi, kirj, vuosi, isbn);
+        Kirja kirja = null;
+        if (isbn != null && !vuosi.isEmpty()) {
+            kirja = new Kirja(nimi, kirj, vuosi, isbn);
+        } else if (vuosi != null) {
+            kirja = new Kirja(nimi, kirj, vuosi);
+        } else if (vuosi == null) {
+            kirja = new Kirja(nimi, kirj);
+        }
+
         this.kirjalista.lisaaKirja(kirja);
     }
 
     /**
-     * Pyyhkii mallin tyhjäksi aikaisemmasta materiaalista ja lisää siihen kaikki
-     * Kirjalistan sisältämien kirjojen lyhyet String-edustukset. 
+     * Pyyhkii mallin tyhjäksi aikaisemmasta materiaalista ja lisää siihen
+     * kaikki Kirjalistan sisältämien kirjojen lyhyet String-edustukset.
      */
     public void asetaLista() {
         this.model.clear();
@@ -117,9 +140,8 @@ public class ListausNakyma implements Nakyma {
     }
 
     /**
-     * Tyhjentää ikkunan ja asettaa siihen listan.  
-     * Tyhjentää alanappi-osion, luo "ala"näkymät ja laittaa siihen napit, joita 
-     * painamalla niihin päästään. 
+     * Tyhjentää ikkunan ja asettaa siihen listan. Tyhjentää alanappi-osion, luo
+     * "ala"näkymät ja laittaa siihen napit, joita painamalla niihin päästään.
      */
     @Override
     public void asetaNakyma() {
@@ -136,16 +158,22 @@ public class ListausNakyma implements Nakyma {
         this.alanapit.setLayout(new FlowLayout());
         this.alanapit.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
+        this.hakualue.removeAll();
+        
+        
         MuokkausNakyma muokkaus = new MuokkausNakyma(this.kirjalista, this.tiedosto, this.ikkuna, this.tekstikentta, this.model);
         TietoNakyma tieto = new TietoNakyma(this.kirjalista, this.ikkuna, this.tekstikentta);
+        HakuNakyma haku = new HakuNakyma(this.kirjalista, this.ikkuna, this.hakualue, this.model);
 
         lisaaPerusNappi("Näytä kirjan tiedot", this.alanapit, tieto);
         lisaaPerusNappi("Muokkaa kirjan tietoja", this.alanapit, muokkaus);
         lisaaPoistoNappi("Poista kirja", this.alanapit);
+        haku.asetaNakyma();
     }
 
     /**
-     * Luo ja lisää ns yleistä kuuntelijaa käyttävän perusnapin. 
+     * Luo ja lisää ns yleistä kuuntelijaa käyttävän perusnapin.
+     *
      * @param teksti Napin teksti
      * @param napit JPanel, johon nappi laitetaan
      * @param nakyma Näkymä, jonka nappi aukaisee
@@ -157,7 +185,8 @@ public class ListausNakyma implements Nakyma {
     }
 
     /**
-     * Luo ja lisää PoistoNäkymän avaavan napin. 
+     * Luo ja lisää PoistoNäkymän avaavan napin.
+     *
      * @param teksti Napin teksti
      * @param napit JPanel, johon nappi lisätään
      */
@@ -169,10 +198,11 @@ public class ListausNakyma implements Nakyma {
 
     /**
      * Lukee tekstitiedostosta rivi riviltä sisällön ja lisää jokaisen rivin
-     * erikseen ArrayListiin. 
+     * erikseen ArrayListiin.
+     *
      * @return Tiedoston sisältö ArrayListissä
      * @throws FileNotFoundException
-     * @throws IOException 
+     * @throws IOException
      */
     public ArrayList lukuTiedostosta() throws FileNotFoundException, IOException {
         ArrayList sisalto = new ArrayList();

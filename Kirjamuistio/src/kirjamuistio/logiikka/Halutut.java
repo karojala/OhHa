@@ -5,15 +5,15 @@ import java.util.TreeMap;
 
 /**
  * Halutut on Kirjalistan erikoistapaus, joka toimii varastona halutuille
- * kirjoille. Se poikkeaa pieniltä osin Omistetut-luokasta:
- * - Julkaisuvuoden syöttäminen kirjalle ei ole pakollista
+ * kirjoille. Se poikkeaa pieniltä osin Omistetut-luokasta: - Julkaisuvuoden
+ * syöttäminen kirjalle ei ole pakollista
  *
  * @author Karita Ojala
  */
 public class Halutut implements Kirjalista {
 
     /**
-     * TreeMap, joka sisältää String-muotoisia avaimia ja Kirja-olioita arvoina. 
+     * TreeMap, joka sisältää String-muotoisia avaimia ja Kirja-olioita arvoina.
      */
     private TreeMap<String, Kirja> kirjat;
 
@@ -36,7 +36,11 @@ public class Halutut implements Kirjalista {
         }
 
         //Julkaisuvuosi ei pakollinen halutuille kirjoille
-        if (Integer.parseInt(kirja.getJulkaisuvuosi()) == 0 || Integer.parseInt(kirja.getJulkaisuvuosi()) > 2015) {
+        if (kirja.getJulkaisuvuosi() == null) {
+            ok = true;
+        } else if (kirja.getJulkaisuvuosi().contains("")) {
+            ok = true;
+        } else if (Integer.parseInt(kirja.getJulkaisuvuosi()) == 0 || Integer.parseInt(kirja.getJulkaisuvuosi()) > 2015) {
             System.out.println("Kirjan julkaisuvuosi on virheellinen.");
             ok = false;
         }
@@ -47,7 +51,7 @@ public class Halutut implements Kirjalista {
     @Override
     public Kirja getKirja(String nimi) {
         String nimisiisti = siistiMerkkijono(nimi);
-        
+
         Kirja kirja = null;
         if (this.kirjat.containsKey(nimisiisti)) {
             kirja = this.kirjat.get(nimisiisti);

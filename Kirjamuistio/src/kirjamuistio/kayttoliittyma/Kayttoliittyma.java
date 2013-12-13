@@ -7,6 +7,7 @@ import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import javax.swing.WindowConstants;
+import kirjamuistio.logiikka.Halutut;
 import kirjamuistio.logiikka.Kirjalista;
 import kirjamuistio.logiikka.Omistetut;
 
@@ -47,7 +48,7 @@ public class Kayttoliittyma implements Runnable {
         JTabbedPane tabbedPane = new JTabbedPane();
 
         Kirjalista omistetutlista = new Omistetut();
-        Kirjalista halututlista = new Omistetut();
+        Kirjalista halututlista = new Halutut();
         
         // Luodaan välilehdet eli tabit omistetuille ja halutuille kirjoille
         File omtied = new File("omistetutkirjat.txt");

@@ -8,12 +8,20 @@ import javax.swing.JPanel;
 import kirjamuistio.logiikka.Kirjalista;
 
 /**
- * Kirjanäkymä on käyttäliittymän näkymistä perustavin. 
+ * Kirjanäkymä on käyttäliittymän näkymistä perustavin.
+ *
  * @author Karita Ojala
  */
 public class Kirjanakyma extends JPanel {
 
+    /**
+     * Kirjalista, joko Omistetut tai Halutut riippuen välilehdestä.
+     */
     private Kirjalista kirjalista;
+    /**
+     * Tekstitiedosto, johon kirjalista tallennetaan (eri riippuen
+     * kirjalistasta).
+     */
     private File tiedosto;
 
     public Kirjanakyma(Kirjalista kirjalista, File tiedosto) {
@@ -23,9 +31,10 @@ public class Kirjanakyma extends JPanel {
         teeSisalto();
     }
 
-    /** 
-     * Tekee Kirjanäkymän sisällön. Luo Kirjanäkymän sisälle JPanelit, joihin tulee
-     * erilaista sisältöä riippuen nappien painalluksista yms. Asettaa alkunäkymän. 
+    /**
+     * Tekee Kirjanäkymän sisällön. Luo Kirjanäkymän sisälle JPanelit, joihin
+     * tulee erilaista sisältöä riippuen nappien painalluksista yms. Asettaa
+     * alkunäkymän.
      */
     private void teeSisalto() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -46,20 +55,19 @@ public class Kirjanakyma extends JPanel {
         JPanel hakualue = new JPanel();
         this.add(hakualue);
 
-        ListausNakyma listaus = new ListausNakyma(this.kirjalista, this.tiedosto, ikkuna, alanapit);
+        ListausNakyma listaus = new ListausNakyma(this.kirjalista, this.tiedosto, ikkuna, alanapit, hakualue);
         LisaysNakyma lisays = new LisaysNakyma(this.kirjalista, this.tiedosto, ikkuna);
-        HakuNakyma haku = new HakuNakyma(this.kirjalista, ikkuna, hakualue);
 
         lisaaNappi("Näytä kaikki kirjat", napit, listaus);
         lisaaNappi("Lisää uusi kirja", napit, lisays);
-        
+
         listaus.asetaNakyma();
-        haku.asetaNakyma();
 
     }
 
     /**
-     * Tekee JButtoneita. 
+     * Tekee JButtoneita.
+     *
      * @param teksti Napissa näkyvä teksti
      * @param napit JPanel, johon nappi laitetaan
      * @param nakyma Nakymä, joka avautuu nappia painamalla

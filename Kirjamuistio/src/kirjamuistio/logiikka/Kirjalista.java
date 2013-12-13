@@ -38,7 +38,6 @@ public interface Kirjalista {
      * @param kirja Lisättävä kirja
      */
     public void lisaaKirja(Kirja kirja);
-
     /**
      * Metodi, joka poistaa nimeä vastaavan kirjan. Kirja hakee siistityn nimen
      * avulla avaimen, jonka poistaa arvoineen. Jos kirja ei ole listassa, sitä

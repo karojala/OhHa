@@ -1,20 +1,25 @@
 package kirjamuistio.logiikka;
 
 /**
- * Kirja-luokka kokoaa kasaan tarvittavat tiedot yhdestä Kirja-oliosta
- * Sillä on getterit ja setterit, joiden avulla voidaan sekä hakea kirjan tietoja 
- * että muokata tietoja. 
+ * Kirja-luokka kokoaa kasaan tarvittavat tiedot yhdestä Kirja-oliosta Sillä on
+ * getterit ja setterit, joiden avulla voidaan sekä hakea kirjan tietoja että
+ * muokata tietoja.
+ *
  * @author Karita Ojala
  */
 public class Kirja {
 
     /**
-     * Kirjan nimi, kirjoittaja, julkaisuvuosi ja ISBN-koodi. 
+     * Kirjan nimi, kirjoittaja, julkaisuvuosi ja ISBN-koodi.
      */
     private String nimi;
     private String kirjoittaja;
     private String julkvuosi;
     private String isbn;
+
+    public Kirja(String nimi, String kirjoittaja) {
+        this(nimi, kirjoittaja, "", "");
+    }
 
     public Kirja(String nimi, String kirjoittaja, String julkvuosi) {
         this(nimi, kirjoittaja, julkvuosi, "");
@@ -36,7 +41,11 @@ public class Kirja {
     }
 
     public void setJulkaisuvuosi(String julkvuosi) {
-        this.julkvuosi = julkvuosi;
+        if (0 < Integer.parseInt(julkvuosi) && Integer.parseInt(julkvuosi) < 2015) {
+            this.julkvuosi = julkvuosi;
+        } else {
+            System.out.println("Julkaisuvuosi ei voi olla 0 eikä yli 2015");
+        }
     }
 
     public void setISBN(String isbn) {
@@ -62,12 +71,12 @@ public class Kirja {
     public String lyhytString() {
         return "'" + this.nimi + "'" + ", " + this.kirjoittaja;
     }
-    
+
     @Override
     public String toString() {
-        if (getJulkaisuvuosi().isEmpty()) {
+        if (getJulkaisuvuosi() == null || getJulkaisuvuosi().contentEquals("")) {
             return "'" + this.nimi + "'" + ", " + this.kirjoittaja;
-        } else if (getISBN().isEmpty()) {
+        } else if (getISBN() == null || getISBN().contentEquals("")) {
             return "'" + this.nimi + "'" + ", " + this.kirjoittaja + ", " + this.julkvuosi;
         }
         return "'" + this.nimi + "'" + ", " + this.kirjoittaja + ", " + this.julkvuosi + ", " + this.isbn;

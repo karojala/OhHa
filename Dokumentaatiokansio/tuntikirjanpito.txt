@@ -1,5 +1,8 @@
 ﻿Ohjelmoinnin harjoitustyö - Tuntikirjanpito
 
+13.12.2013 perjantai 4 h
+Hakutoiminnon toteutuksen viimeistely käyttöliittymässä, JavaDocin viimeistely
+
 12.12.2013 torstai 8 h
 Hakutoiminnon toteutusta käyttöliittymään, isbn lisäys kirjan tietoihin käyttöliittymässä, testien päivitystä ja lisäämistä, dokumentaatiota
 

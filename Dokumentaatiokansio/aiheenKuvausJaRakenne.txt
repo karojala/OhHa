@@ -1,29 +1,35 @@
 ﻿Aihe: Kirjamuistio
-Toteutetaan järjestelmä, johon käyttäjä voi lisätä jo omistamiaan sekä tulevaisuudessa haluamiaan kirjoja tietoineen.
-Talletettavia tietoja ovat ainakin kirjan status (omistettu/haluttu), nimi, kirjoittaja, julkaisuvuosi, (ISBN-koodi, genre ja oma kuvaus). 
-Käyttäjä voi lisätä suuren, mutta rajallisen määrän (esim. 2000) kirjoja tietoineen omaan kokoelmaansa. 
-Kirjan tiedoista on täytettävä ainakin status, nimi, kirjoittaja ja julkaisuvuosi, muut kohdat ovat vapaaehtoisia. 
-Käyttäjä voi rajattomasti jälkikäteen muokata kirjojensa tietoja. Lisäksi käyttäjä voivat milloin tahansa poistaa kirjan kokoelmastaan. 
-Kirjoja voi hakea kirjan nimen, julkaisuvuoden, (ISBN-koodin jne.) perusteella. Haku voi tuottaa tuloksena yhden tai useampia kirjoja (tai ei yhtään). 
+Järjestelmä, johon käyttäjä voi lisätä jo omistamiaan sekä tulevaisuudessa haluamiaan kirjoja tietoineen.
+Kirja talletetaan joko omistettujen tai haluttujen kirjojen listaan ja talletettavia kirjan tietoja ovat nimi, kirjoittaja, julkaisuvuosi ja ISBN-koodi. 
+Omistettujen kirjojen kohdalla ISBN-koodi ei ole pakollinen, haluttujen kirjojen kohdalla julkaisuvuosi ja ISBN-koodi eivät ole pakollisia. 
+Käyttäjä voi rajattoman kirjoja tietoineen omaan kokoelmaansa. Käyttäjä voi rajattomasti jälkikäteen muokata kirjojensa tietoja. Lisäksi käyttäjä voi milloin tahansa poistaa kirjan kokoelmastaan. 
+Kirjoja voi hakea kirjan nimen, kirjoittajan ja julkaisuvuoden perusteella. Haku voi tuottaa tuloksena yhden tai useampia kirjoja (tai ei yhtään). 
+Omistetut ja halutut kirjat talletetaan erillisiin kirjalistoihin, jotka talletetaan erillisiin tekstitiedostoihin (omistetut.txt, halutut.txt). 
 
-Järjestelmän tavoitteena on toimia käyttäjän henkilökohtaisena muistiona omista kirjoistaan ja niistä kirjoista, joita he haluaisivat mahdollisesti tulevaisuudessa hankkia. 
+Järjestelmän tavoitteena on toimia käyttäjän henkilökohtaisena muistiona omista kirjoistaan ja niistä kirjoista, joita hän haluaisi mahdollisesti tulevaisuudessa hankkia. 
 Järjestelmän päätavoite on oman kirjakokoelman "hallinta" bibliofiileille. 
 
 Käyttäjät: Kirjojen omistaja (henkilökohtainen tietokanta)
 
 Käyttäjän toiminnot: 
 * Kaikkien kirjojen listaus
-  - Näyttää kaikki käyttäjän kirjat esim. aakkos-, julkaisu- tai lisäysjärjestyksessä
+  - Näyttää kaikki käyttäjän kirjat kirjan nimen mukaan aakkosjärjestyksessä
+* Yksittäisen kirjan tietojen tarkastelu
 * Kirjahaku tietyn tiedon/tietojen perusteella
-  - Kaikki esim. tiettyä nimeä tai julkaisuvuotta vastaavat kirjat
+  - Kaikki nimeä, kirjoittajaa tai julkaisuvuotta vastaavat kirjat
 * Kirjan lisääminen (pakolliset tiedot *)
-  - Status: omistettu vai haluttu (määritetään sillä, mihin kirjalistaan kirja lisätään)
+  - Lisätään joko omistettujen tai haluttujen kirjojen listaan
   - Nimi *
   - Kirjoittaja *
-  - Julkaisuvuosi *
-  - (ISBN-koodi)
-  - (Genre)
-  - (Kuvaus)
+  - Julkaisuvuosi (*)
+  - ISBN-koodi
 * Kirjan muokkaus
   - Kaikkien tietojen muokkaus onnistuu erikseen
 * Kirjan poistaminen
+
+Rakenne:
+Kirjat ovat Kirja-olioita, joilla on String-muotoisina attribuutteinaan nimi, kirjoittaja, julkaisuvuosi ja ISBN-koodi. 
+Kirja-oliot talletetaan Kirjalista-rajapinnan toteuttavaan Omistetut- tai Halutut-luokkaan TreeMappiin
+Kirjalista-luokalla on metodeja, joiden avulla Kirja-olion voi lisätä listaan, poistaa sieltä ja hakea sieltä, tai joiden avulla voidaan tarkistaa Kirjan tiedot tai Kirjan olemassaolo listassa
+Jako Omistetut- ja Halutut-luokkiin luo pääperustan käyttöliittymälle, jossa nämä luokat on jo alusta lähtien jaettu eri välilehtiin ja niiden sisältämiä Kirja-olioita käsitellään aina erikseen
+Käyttöliittymä käynnistetään Main-luokan kautta
