@@ -5,7 +5,5 @@ Tehtävälista:
 	- Ohjelma ottaa huomioon:
 		- Vääränmuotoisen syötteen, vääränmuotoiset tekstitiedostot, tiedostojen puuttumisen yms.
 	- Koodin tarkastus (muutosten osalta)
-	- Aihemäärittelyn ja ohjelman rakenteen kuvauksen päivitys
-	- Käyttöohjeiden kirjoittaminen
 	- Tuntikirjanpidon viimeinen päivitys
 	- .jar-tiedoston luominen (huom. teksitiedostojen sijainti, testaus useammalla koneella) projektiokansion "dist"-kansioon

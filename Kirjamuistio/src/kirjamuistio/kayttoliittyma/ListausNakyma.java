@@ -100,7 +100,7 @@ public class ListausNakyma implements Nakyma {
      */
     public void kirjanLuonti(Object rivi) {
         String tiedot = (String) rivi;
-        String[] osat = tiedot.split(",");
+        String[] osat = tiedot.split("#");
         String nimi = osat[0];
         nimi = nimi.replace("'", "").trim();
         String kirj = osat[1].trim();

@@ -67,13 +67,22 @@ public class Kirja {
     public String getISBN() {
         return this.isbn;
     }
-
+    
+    @Override
+    public String toString() {
+        if (getJulkaisuvuosi() == null || getJulkaisuvuosi().contentEquals("")) {
+            return "'" + this.nimi + "'" + "#" + this.kirjoittaja;
+        } else if (getISBN() == null || getISBN().contentEquals("")) {
+            return "'" + this.nimi + "'" + "#" + this.kirjoittaja + "#" + this.julkvuosi;
+        }
+        return "'" + this.nimi + "'" + "#" + this.kirjoittaja + "#" + this.julkvuosi + "#" + this.isbn;
+    }
+    
     public String lyhytString() {
         return "'" + this.nimi + "'" + ", " + this.kirjoittaja;
     }
 
-    @Override
-    public String toString() {
+    public String toString2() {
         if (getJulkaisuvuosi() == null || getJulkaisuvuosi().contentEquals("")) {
             return "'" + this.nimi + "'" + ", " + this.kirjoittaja;
         } else if (getISBN() == null || getISBN().contentEquals("")) {
