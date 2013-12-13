@@ -1,9 +1,0 @@
-Tehtävälista:
-	- Hakuominaisuuden hiomista (tuottaa silti joskus erroria yhdistettynä muokkaus/poistotoimintoihin)
-	- Testien laajentaminen
-		- Kaikki järjevät loogiset luokat testattu kattavasti (mahd. monta metodia, virhetilanteet, syötteet)
-	- Ohjelma ottaa huomioon:
-		- Vääränmuotoisen syötteen, vääränmuotoiset tekstitiedostot, tiedostojen puuttumisen yms.
-	- Koodin tarkastus (muutosten osalta)
-	- Tuntikirjanpidon viimeinen päivitys
-	- .jar-tiedoston luominen (huom. teksitiedostojen sijainti, testaus useammalla koneella) projektiokansion "dist"-kansioon

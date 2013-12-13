@@ -62,9 +62,7 @@ public class Kirjanakyma extends JPanel {
         lisaaNappi("Lisää uusi kirja", napit, lisays);
 
         listaus.asetaNakyma();
-
     }
-
     /**
      * Tekee JButtoneita.
      *

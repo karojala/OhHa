@@ -78,10 +78,18 @@ public class Kirja {
         return "'" + this.nimi + "'" + "#" + this.kirjoittaja + "#" + this.julkvuosi + "#" + this.isbn;
     }
     
+    /**
+     * Lyhyempi toStringin versio, jota käytetään käyttöliittymän JListissä. 
+     * @return Kirja toString
+     */
     public String lyhytString() {
         return "'" + this.nimi + "'" + ", " + this.kirjoittaja;
     }
 
+    /**
+     * Ns perus/alkuperäinen versio toStringistä. Jätetty varalta. 
+     * @return Kirja toString
+     */
     public String toString2() {
         if (getJulkaisuvuosi() == null || getJulkaisuvuosi().contentEquals("")) {
             return "'" + this.nimi + "'" + ", " + this.kirjoittaja;
