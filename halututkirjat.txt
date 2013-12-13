@@ -1,0 +1,19 @@
+'A Brief History of Time'#Stephen Hawking
+'A Briefer History of Time'#Stephen Hawking
+'Abarat'#Clive Barker#2002
+'Absolute Midnight'#Clive Barker
+'Animal Farm'#George Orwell
+'Dune'#Frank Herbert
+'Frakenstein'#Mary Shelley
+'Gödel, Escher, Bach: An Eternal Golden Braid'#Douglas R. Hofstadter
+'Hyperion'#Dan Simmons
+'Lord of the Flies'#William Golding
+'Macbeth'#William Shakespeare
+'Metaphysics'#Aristotle
+'Sense and Sensibility'#Jane Austen
+'The Count of Monte Cristo'#Alexandre Dumas
+'The God Delusion'#Richard Dawkins
+'The Lovely Bones'#Alice Sebold
+'The Time Machine'#H. G. Wells
+'The Wonderful Wizard of Oz'#Frank L. Baum
+'Watchmen'#Alan Moore

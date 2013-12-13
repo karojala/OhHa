@@ -4,7 +4,7 @@ Kirja talletetaan joko omistettujen tai haluttujen kirjojen listaan ja talletett
 Omistettujen kirjojen kohdalla ISBN-koodi ei ole pakollinen, haluttujen kirjojen kohdalla julkaisuvuosi ja ISBN-koodi eivät ole pakollisia. 
 Käyttäjä voi rajattoman kirjoja tietoineen omaan kokoelmaansa. Käyttäjä voi rajattomasti jälkikäteen muokata kirjojensa tietoja. Lisäksi käyttäjä voi milloin tahansa poistaa kirjan kokoelmastaan. 
 Kirjoja voi hakea kirjan nimen, kirjoittajan ja julkaisuvuoden perusteella. Haku voi tuottaa tuloksena yhden tai useampia kirjoja (tai ei yhtään). 
-Omistetut ja halutut kirjat talletetaan erillisiin kirjalistoihin, jotka talletetaan erillisiin tekstitiedostoihin (omistetut.txt, halutut.txt). 
+Omistetut ja halutut kirjat talletetaan erillisiin kirjalistoihin, jotka talletetaan erillisiin tekstitiedostoihin (omistetutkirjat.txt, halututkirjat.txt). 
 
 Järjestelmän tavoitteena on toimia käyttäjän henkilökohtaisena muistiona omista kirjoistaan ja niistä kirjoista, joita hän haluaisi mahdollisesti tulevaisuudessa hankkia. 
 Järjestelmän päätavoite on oman kirjakokoelman "hallinta" bibliofiileille. 
